@@ -17,4 +17,4 @@ exports.makePayment = (req, res) => {
             res.status(200).json(data);
         })
         .catch((err) => res.status(400).send("Error creating payment data in mySQL " + err));
-}
+};
