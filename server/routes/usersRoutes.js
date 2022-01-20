@@ -1,17 +1,10 @@
 const express = require("express");
 const router = express.Router();
-// const knex = require("../knexConfig");
-const bcrypt = require('bcryptjs');
-const jwt = require("jsonwebtoken");
+const usersController = require("../controllers/usersController");
 
-// create a new user
-router.post("./register", (req, res) => {
 
-});
 
-// user login
-router.post("/login", (req, res) => {
-
-});
+router.route("/register").post(usersController.registerUser);
+router.route("/login").post(usersController.createJWT);
 
 module.exports = router;

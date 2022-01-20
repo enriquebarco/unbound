@@ -11,6 +11,7 @@ module.exports = [
       milestoneDescription: "We now understand that we have product market fit and would like to take our product to the next level by building out a fully functional beta that can support 10,000 users / day",
       prefCurrency: "COP",
       paymentAmount: 250000,
+      users_id: 1,
     },
     {
       id: 2,
@@ -24,5 +25,6 @@ module.exports = [
       milestoneDescription: "We have an incredible amount of data, and require the implementation of a road map to leverage this data for monetary gains",
       prefCurrency: "EUR",
       paymentAmount: 30000,
+      users_id: 1,
     },
 ]
