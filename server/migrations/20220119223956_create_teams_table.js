@@ -7,13 +7,25 @@ exports.up = function(knex) {
         table.timestamp("startDate").notNullable();
         table.timestamp("endDate");
         table.integer("terminationPeriod").notNullable();
-        table.string("role").notNullable();
+        table.string("jobTitle").notNullable();
         table.string("milestone").notNullable();
         table.string("milestoneDescription").notNullable();
         table.string("prefCurrency").notNullable();
         table.integer("paymentAmount").notNullable();
         table.string("contract");
     })
+  .createTable("payments", (table) => {
+    table.increments("id").primary();
+    table.timestamp("dateSent").notNullable();
+    table.string("status").notNullable();
+    table
+      .integer("teams_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("teams")
+      .onUpdate("CASCADE");
+  })
 };
 
 exports.down = function(knex) {
