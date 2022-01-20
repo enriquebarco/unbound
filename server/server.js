@@ -3,7 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const PORT = process.env.port || 8080;
-const teamRoutes = require("./routes/teamsRoutes")
+const teamRoutes = require("./routes/teamsRoutes");
+const usersRoutes = require("./routes/usersRoutes");
 
 // middleware
 app.use(cors());
