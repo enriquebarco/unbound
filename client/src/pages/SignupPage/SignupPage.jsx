@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios"
 import Input from '../../components/Input/Input';
 
-const URL = process.env.url;
+const URL = process.env.REACT_APP_URL
 
 export default class SignupPage extends Component {
     state = {

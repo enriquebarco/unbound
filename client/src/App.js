@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
 
 export default class App extends Component {
@@ -12,7 +13,7 @@ export default class App extends Component {
                           
                         </Route>
                         <Route path="/login">
-                      
+                          <LoginPage />
                         </Route>
                         <Route path="/signup">
                           <SignupPage />
