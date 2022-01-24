@@ -41,3 +41,13 @@ exports.createJWT = (req, res) => {
         .catch((err) => res.status(400).send("Invalid credentials" + err));
 };
 
+exports.userInfo = (req, res) => {
+    // console.log(req);
+        // knex("users")
+        // .where({ email: req.user.email })
+        // .first()
+        // .then((user) => {
+        //     delete user.password;
+        //     res.json(user);
+        // });
+};
