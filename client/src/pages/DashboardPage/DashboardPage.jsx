@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Landing from '../../components/Landing/Landing';
 import DashboardList from '../../components/DashboardList/DashboardList';
+import PageHeader from '../../components/PageHeader/PageHeader';
 
 const URL = process.env.REACT_APP_BASE_URL
 console.log(URL);
@@ -49,9 +50,12 @@ export class DashboardPage extends Component {
             <div>loading...</div>
         )
     }
-    
+
     return(
-        <DashboardList data={this.state.teams} />
+        <>
+            <PageHeader />
+            <DashboardList data={this.state.teams} />
+        </>
     );
   }
 }

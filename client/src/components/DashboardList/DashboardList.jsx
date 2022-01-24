@@ -12,7 +12,9 @@ export default function DashboardList( { data } ) {
                     name={team.name}
                     country={team.country}
                     jobTitle={team.jobTitle}
-                    contract={team.contract} 
+                    contract={team.contract}
+                    prefCurrency={team.prefCurrency}
+                    paymentAmount={team.paymentAmount} 
                 />
             })}
         </div>
