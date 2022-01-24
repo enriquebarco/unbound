@@ -15,7 +15,7 @@ export default class App extends Component {
                       
                         </Route>
                         <Route path="/signup">
-                        <SignupPage />
+                          <SignupPage />
                         </Route>
                     </Switch>
                 </BrowserRouter>
