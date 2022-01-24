@@ -5,6 +5,6 @@ const authenticate = require("../middleware/authenticate");
 
 router.route("/register").post(usersController.registerUser);
 router.route("/login").post(usersController.createJWT);
-router.route("/current", authenticate).get(usersController.userInfo);
+router.route("/current").get(authenticate, usersController.userInfo);
 
 module.exports = router;

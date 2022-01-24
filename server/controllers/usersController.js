@@ -1,5 +1,4 @@
 const knex = require("../knexConfig");
-const authenticate = require("../middleware/authenticate");
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const JWT_KEY = process.env.JWT_KEY;
@@ -26,7 +25,7 @@ exports.createJWT = (req, res) => {
     }
 
     knex("users")
-        .where({ email})
+        .where({ email })
         .first()
         .then((user) => {
             const isPasswordCorrect = bcrypt.compareSync(password, user.password)
@@ -41,13 +40,12 @@ exports.createJWT = (req, res) => {
         .catch((err) => res.status(400).send("Invalid credentials" + err));
 };
 
-exports.userInfo = (req, res) => {
-    // console.log(req);
-        // knex("users")
-        // .where({ email: req.user.email })
-        // .first()
-        // .then((user) => {
-        //     delete user.password;
-        //     res.json(user);
-        // });
+exports.userInfo =  (req, res) => {
+        knex("users")
+        .where({ email: req.user.email })
+        .first()
+        .then((user) => {
+            delete user.password;
+            res.json(user);
+        });
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios"
 import Input from '../../components/Input/Input';
 
-const URL = process.env.REACT_APP_URL
+const {URL} = process.env.REACT_APP_BASE_URL
 
 export default class SignupPage extends Component {
     state = {
@@ -15,7 +15,7 @@ export default class SignupPage extends Component {
         event.preventDefault();
 
         axios
-            .post(`${URL}/register`, {
+            .post(`${URL}/users/register`, {
                 email: event.target.email.value,
                 password: event.target.password.value,
                 businessName: event.target.business.value,

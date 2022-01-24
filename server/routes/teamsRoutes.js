@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const teamsController = require("../controllers/teamsController");
+const authenticate = require("../middleware/authenticate");
 
 router
     .route("/")
-    .get(teamsController.index)
+    .get(authenticate, teamsController.entireTeam)
     .post(teamsController.addTeamMember);
 
 router

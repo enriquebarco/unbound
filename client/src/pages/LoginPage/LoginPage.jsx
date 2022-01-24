@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 import axios from "axios";
-import "./LoginPage.scss"
+// import "./LoginPage.scss"
 
-const URL = process.env.REACT_APP_URL
+const URL = process.env.REACT_APP_BASE_URL
 
 export class LoginPage extends Component {
     state = {
@@ -16,7 +16,7 @@ export class LoginPage extends Component {
         event.preventDefault();
 
         axios
-            .post(`${URL}/login`, {
+            .post(`${URL}/users/login`, {
                 email: event.target.email.value,
                 password: event.target.password.value
             })

@@ -1,7 +1,8 @@
 const knex = require("../knexConfig");
 
-exports.index = (_req, res) => {
+exports.entireTeam = (req, res) => {
     knex("teams")
+    .where({ id: req.user.id })
     .then((data) => {
         res.status(200).json(data);
     })
@@ -20,17 +21,6 @@ exports.singleTeamMember = (req, res) => {
             res.status(400).send("Error retrieving team member" + id + err)
         });
 };
-
-// exports.teamMemberPayments = (req,res) => {
-//     knex("payments")
-//         .where({ teams_id: req.params.id })
-//         .then((data) => {
-//             res.status(200).json(data);
-//         })
-//         .catch((err) => {
-//             res.status(400).send("Error retrieving payments for team member" + id + err)
-//         });
-// };
 
 exports.teamMemberPayments = (req,res) => {
     knex
