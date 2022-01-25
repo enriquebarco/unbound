@@ -1,7 +1,8 @@
 import React from 'react';
+import StripeCheckout from '../StripeCheckout/StripeCheckout';
 import "./DashboardItem.scss"
 
-export default function DashboardItem( { id, name, country, jobTitle, contract, prefCurrency, paymentAmount } ) {
+export default function DashboardItem( { id, name, country, jobTitle, contract, prefCurrency, paymentAmount, milestone, token } ) {
   return(
       <div className="dashboard-item">
         <div className="dashboard-item__container">
@@ -22,7 +23,12 @@ export default function DashboardItem( { id, name, country, jobTitle, contract, 
         <div className="dashboard-item__container">
             <h3 className="dashboard-item__text">${paymentAmount.toLocaleString("en-US")}</h3>
         </div>
-        <button className="dashboard-item__button">Pay</button>
+        <StripeCheckout 
+            paymentAmount={paymentAmount}
+            name={name}
+            milestone={milestone}
+            token={token}
+        />
       </div>
       
   )

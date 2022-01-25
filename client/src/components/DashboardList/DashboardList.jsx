@@ -1,7 +1,7 @@
 import React from 'react';
 import DashboardItem from '../DashboardItem/DashboardItem';
 
-export default function DashboardList( { data } ) {
+export default function DashboardList( { data, token } ) {
 
     return(
         <div className="list">
@@ -14,7 +14,9 @@ export default function DashboardList( { data } ) {
                     jobTitle={team.jobTitle}
                     contract={team.contract}
                     prefCurrency={team.prefCurrency}
-                    paymentAmount={team.paymentAmount} 
+                    paymentAmount={team.paymentAmount}
+                    milestone={team.milestone}
+                    token={token} 
                 />
             })}
         </div>

@@ -10,11 +10,14 @@ export class DashboardPage extends Component {
 
     state = {
         teams: null,
-        failedAuth: false
+        failedAuth: false,
+        token: null,
     }
     
     componentDidMount() {
         const token = sessionStorage.getItem('token');
+
+        this.setState({ token: token})
 
         if(!token) {
             this.setState( { failedAuth: true });
@@ -53,7 +56,7 @@ export class DashboardPage extends Component {
     return(
         <>
             <PageHeader />
-            <DashboardList data={this.state.teams} />
+            <DashboardList data={this.state.teams} token={this.state.token} />
         </>
     );
   }
