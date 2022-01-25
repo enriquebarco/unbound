@@ -23,13 +23,16 @@ const StripeCheckout = ( { paymentAmount, name, milestone, token }) => {
             body: { line_items },
         }, token);
 
+
+        
         const { sessionId } = response;
         const { error } = await stripe.redirectToCheckout({
             sessionId
         });
+        debugger;
 
         if(error) {
-            console.log(error);
+            alert(error)
         }
     }
     
