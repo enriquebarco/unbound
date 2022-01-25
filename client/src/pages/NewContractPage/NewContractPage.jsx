@@ -6,7 +6,7 @@ import PageHeader from '../../components/PageHeader/PageHeader';
 
 const URL = process.env.REACT_APP_BASE_URL
 
-export class DashboardPage extends Component {
+export class NewContractPage extends Component {
 
     state = {
         teams: null,
@@ -59,4 +59,4 @@ export class DashboardPage extends Component {
   }
 }
 
-export default DashboardPage;
+export default NewContractPage;
