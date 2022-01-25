@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Landing from '../../components/Landing/Landing';
-import DashboardList from '../../components/DashboardList/DashboardList';
 import PageHeader from '../../components/PageHeader/PageHeader';
+import AddContactForm from '../../components/AddContactForm/AddContactForm';
 
 const URL = process.env.REACT_APP_BASE_URL
 
@@ -53,7 +53,7 @@ export class NewContractPage extends Component {
     return(
         <>
             <PageHeader />
-            <DashboardList data={this.state.teams} />
+            <AddContactForm />
         </>
     );
   }

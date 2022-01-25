@@ -48,7 +48,7 @@ export default class SignupPage extends Component {
                 {this.state.error && <div className="signup__message">{this.state.error}</div>}
                 </form>
                 <p>
-                {/* Have an account? <Link to="/login">Log in</Link> */}
+                Have an account? <Link to="/login">Log in</Link>
                 </p>
         </main>
     )

@@ -5,8 +5,7 @@ import { fetchFromAPI } from "../../helpers";
 const StripeCheckout = ( { paymentAmount, name, milestone, token }) => {
 
     const stripe = useStripe();
-    const handlePayment = async (event) => {
-        event.preventDefault();
+    const handlePayment = async () => {
         const line_items = [{
             quantity: 1,
             price_data: {
@@ -26,13 +25,13 @@ const StripeCheckout = ( { paymentAmount, name, milestone, token }) => {
 
         
         const { sessionId } = response;
+
         const { error } = await stripe.redirectToCheckout({
             sessionId
         });
-        debugger;
 
         if(error) {
-            alert(error)
+            console.log(error)
         }
     }
     

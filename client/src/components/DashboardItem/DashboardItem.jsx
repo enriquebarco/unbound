@@ -30,6 +30,5 @@ export default function DashboardItem( { id, name, country, jobTitle, contract, 
             token={token}
         />
       </div>
-      
   )
 }

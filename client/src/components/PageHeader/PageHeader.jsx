@@ -6,7 +6,7 @@ export default function PageHeader() {
       <header className="header">
               <img src="" alt="" className="header__logo" />
           <nav className="header__nav-container">
-              <NavLink to="/contracts">
+              <NavLink to="/contract">
                 <h3 className="header__nav-item">Contracts</h3>
               </NavLink>
               <NavLink to="/payments">
