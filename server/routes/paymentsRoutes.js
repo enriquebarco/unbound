@@ -4,7 +4,7 @@ const paymentsController = require("../controllers/paymentsController");
 
 router
     .route("/")
-    .get(paymentsController.index)
+    .get(paymentsController.individualPayments)
     .post(paymentsController.makePayment);
 
 module.exports = router;

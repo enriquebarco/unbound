@@ -2,7 +2,7 @@ const knex = require("../knexConfig");
 
 exports.entireTeam = (req, res) => {
     knex("teams")
-    .where({ id: req.user.id })
+    .where({ users_id: req.user.id })
     .then((data) => {
         res.status(200).json(data);
     })
