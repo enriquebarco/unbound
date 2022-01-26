@@ -10,7 +10,7 @@ module.exports = [
       milestone: "Take MVP to a fully functional Beta",
       milestoneDescription: "We now understand that we have product market fit and would like to take our product to the next level by building out a fully functional beta that can support 10,000 users / day",
       prefCurrency: "COP",
-      paymentAmount: 250000,
+      paymentAmount: 10000,
       users_id: 1,
     },
     {
@@ -27,4 +27,18 @@ module.exports = [
       paymentAmount: 30000,
       users_id: 1,
     },
+    {
+      id: 3,
+      name: "James Lorenzi",
+      country: "Albania",
+      startDate: "2021-09-15",
+      endDate: "2022-08-05",
+      terminationPeriod: 25,
+      jobTitle: "Head of Marketing",
+      milestone: "Launch Google Ads Campaign",
+      milestoneDescription: "Create an iterative google ads strategy to increase business reach",
+      prefCurrency: "ALL",
+      paymentAmount: 2000,
+      users_id: 1,
+    }
 ]

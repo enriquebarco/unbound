@@ -44,5 +44,9 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable("payments", "teams", "users" );
+  return knex
+    .schema
+    .dropTable("payments")
+    .dropTable("teams")
+    .dropTable("users")
 };

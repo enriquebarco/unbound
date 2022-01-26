@@ -1,10 +1,21 @@
 import React from "react";
 import { useStripe } from "@stripe/react-stripe-js";
 import { fetchFromAPI } from "../../helpers";
+import axios from "axios";
 
-const StripeCheckout = ( { paymentAmount, name, milestone, token }) => {
+const url = process.env.REACT_APP_BASE_URL
+
+const handlePaymentAdd = () => {
+    
+
+    debugger;
+}
+
+const StripeCheckout = ( { id, paymentAmount, name, milestone, token }) => {
 
     const stripe = useStripe();
+
+
     const handlePayment = async () => {
         const line_items = [{
             quantity: 1,
@@ -17,10 +28,11 @@ const StripeCheckout = ( { paymentAmount, name, milestone, token }) => {
                 }
             }
         }];
-
+        
+        
         const response = await fetchFromAPI("create-checkout-session", {
             body: { line_items },
-        }, token);
+        }, token, id);
 
 
         
@@ -33,10 +45,25 @@ const StripeCheckout = ( { paymentAmount, name, milestone, token }) => {
         if(error) {
             console.log(error)
         }
+
     }
     
     return (
-        <button onClick={handlePayment} type="submit" className="stripe-checkout-button">
+        <button 
+        onClick={() => {
+            axios.post(url + "/payments" , {
+                dateSent: new Date().toISOString().slice(0, 10),
+                status: "Received",
+                milestone: milestone,
+                paymentAmount: paymentAmount,
+                teams_id: id,
+            })
+            .then((response) => console.log(response))
+            .then(() => handlePayment())
+            .catch((err) => console.log(err));
+        }} 
+        type="submit" 
+        className="stripe-checkout-button">
             Send Payment
         </button>
     ) 

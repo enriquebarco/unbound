@@ -32,6 +32,8 @@ exports.up = function(knex) {
         table.increments("id").primary();
         table.timestamp("dateSent").notNullable();
         table.string("status").notNullable();
+        table.string("milestone").notNullable();
+        table.integer("paymentAmount").notNullable();
         table
           .integer("teams_id")
           .unsigned()

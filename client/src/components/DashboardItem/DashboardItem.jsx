@@ -28,6 +28,7 @@ export default function DashboardItem( { id, name, country, jobTitle, contract, 
             name={name}
             milestone={milestone}
             token={token}
+            id={id}
         />
       </div>
   )

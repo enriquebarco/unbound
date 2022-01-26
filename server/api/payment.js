@@ -1,4 +1,4 @@
-const stripeAPI = require("../stripe");
+const stripeAPI = require("./stripe");
 
 
 
@@ -19,7 +19,7 @@ async function createCheckoutSession (req, res) {
             mode: "payment",
             line_items,
             customer_email: email,
-            success_url: `${domainURL}/success?session_id={CHECKOUT_SESSION_ID}`,
+            success_url: `${domainURL}/payments/${req.headers.teams_id}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${domainURL}/cancelled`,
         });
         res.status(200).json({ sessionId: session.id });    

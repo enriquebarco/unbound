@@ -1,6 +1,4 @@
-
-
-export async function fetchFromAPI(endpoint, opts, token) {
+export async function fetchFromAPI(endpoint, opts, token, id) {
     const { method, body } = { method: "POST", body: null, ...opts };
 
     const res = await fetch(`${process.env.REACT_APP_BASE_URL}/${endpoint}`, {
@@ -8,7 +6,8 @@ export async function fetchFromAPI(endpoint, opts, token) {
         ...(body && { body: JSON.stringify(body) }),
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + token
+            Authorization: "Bearer " + token,
+            teams_id: id,
         },
     });
     return res.json();
