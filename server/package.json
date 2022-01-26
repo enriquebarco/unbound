@@ -7,7 +7,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^1.0.1",
     "mysql": "^2.18.1",
-    "pdfkit": "^0.13.0",
+    "pdf-creator-node": "^2.2.4",
     "stripe": "^8.199.0"
   },
   "name": "server",
