@@ -1,10 +1,14 @@
 const fs = require("fs");
 const pdf = require("pdf-creator-node");
 const path = require("path");
+const { json } = require("express");
 
+
+// data to be used in PDF
 const grabData = fs.readFileSync("./contracts/contractsData/data.json");
 const data = JSON.parse(grabData);
 
+// PDF format
 const options = {
     format: "A4",
     orientation: "portrait",
@@ -18,6 +22,7 @@ const options = {
     }
 };
 
+// function to generate the PDF
 const generatePdf = async (req,res,next) => {
     const html = fs.readFileSync(path.join(__dirname, "../contracts/template.html"), "utf8")
 
@@ -55,7 +60,39 @@ const generatePdf = async (req,res,next) => {
         });
 }
 
+const createData = (req, res) => {
+
+    const { businessName, name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = req.body
+
+    if(!businessName || !name || !country || !startDate || !terminationPeriod || !jobTitle || !milestone || !milestoneDescription || !prefCurrency || !paymentAmount) {
+        return res.status(400).send("Error, missing necessary parameters")
+    }
+
+    newDataArr = []
+
+    const newData = {
+            businessName,
+            name,
+            country,
+            startDate,
+            endDate,
+            terminationPeriod,
+            jobTitle,
+            milestone,
+            milestoneDescription,
+            prefCurrency,
+            paymentAmount,
+    }
+
+    newDataArr.push(newData);
+    fs.writeFileSync("./contracts/contractsData/data.json", JSON.stringify(newDataArr));
+
+    // Respond with the new item that was added to PDF creation file
+    res.status(201).json(newData);
+}
+
 
 module.exports = {
-    generatePdf
+    generatePdf,
+    createData
 }
