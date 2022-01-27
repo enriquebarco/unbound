@@ -6,19 +6,13 @@ const data = require("../contracts/contractsData/data");
 const options = {
     format: "A4",
     orientation: "portrait",
-    border: "10mm",
+    border: "20mm",
     header: {
-        height: "45mm",
+        height: "30mm",
         contents: '<h1 style="text-align: center;">Contract Agreement</h1>' 
     },
     footer: {
         height: "28mm",
-        contents: {
-            first: 'Cover page',
-            2: 'Second page', // Any page number is working. 1-based index
-            default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
-            last: 'Last Page'
-        }
     }
 };
 
@@ -27,10 +21,11 @@ const generatePdf = async (req,res,next) => {
 
     const filename = new Date().toISOString().split('T')[0] + data[0].name + "_doc" + ".pdf";
 
-    const { name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = data[0]
+    const { businessName, name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = data[0]
 
     let individual = {
-                name,
+                businessName: businessName.toUpperCase(),
+                name: name.toUpperCase(),
                 country,
                 startDate,
                 endDate,
@@ -39,7 +34,7 @@ const generatePdf = async (req,res,next) => {
                 milestone,
                 milestoneDescription,
                 prefCurrency,
-                paymentAmount,
+                paymentAmount: paymentAmount.toLocaleString("en-US")
     };
 
     const document = {

@@ -1,5 +1,6 @@
 module.exports = [
     {
+      businessName: "Kabila Group LLC",
       name: "Juan Uribe",
       country: "Colombia",
       startDate: "2021-02-02",

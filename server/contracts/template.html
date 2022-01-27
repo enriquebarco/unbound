@@ -8,6 +8,108 @@
     <link rel="stylesheet" href="template.css">
 </head>
 <body>
-    <h2 class="title">{{individual.name}}</h2>
+
+    <!-- when converting to PDF, the styles only work when coded directly into the html   -->
+
+    <h2 style="text-align: center;" > {{individual.name}} & <br> {{individual.businessName}}</h2>
+    <p><strong>THIS CONTRACTOR AGREEMENT</strong> (the <u>“Agreement”</u>) is made and entered into by and between {{individual.name}}, an individual with its principal place of business in {{individual.country}} (“the Team Member”) and <strong>{{individual.businessName}}</strong>, a Florida corporation with its principal place of business in Key Biscayne, Florida (the <u>“Company”</u>) (the Team Member and the Company are collectively referred to as the <u>“Parties”</u>).</p>
+
+    <p>In consideration of the mutual covenants contained herein and the Company's agreement to engage Team Member, the Parties agree to the following terms and conditions. Intern acknowledges and agrees that this Agreement is supported by good and valid consideration. </p>
+
+    <ol>
+        <li>
+            <strong><u>Term.</u></strong> The Parties agree that the Team Member shall be engaged by the Company pursuant to this Agreement for a term of <strong>{{individual.startDate}}</strong> until <strong>{{individual.endDate}}</strong> (an end date does not need to be specified), provided that either Party may terminate this Agreement and the Team Member's engagement hereunder at any time by providing the other party at least <strong>{{individual.terminationPeriod}}</strong> calendar days advance written notice. The period that The Team Member is engaged by the Company under this Agreement is referred to as the <u> “Term”</u>. 
+        </li>
+        <br>
+        <li>
+            <strong><u>Fees.</u></strong>The Company will pay the Team Member for all services performed under this Agreement as follows: 
+        </li>
+        <ul>
+            <li>
+                <p><strong>(a) Milestone Payments.</strong> The Team Member agrees to be paid in respect to milestones, where each milestone represents a monetary value. In terms with this agreement, the Company will pay the Team Member <strong>${{individual.paymentAmount}} USD</strong> in the equivalent of the <strong>{{individual.prefCurrency}}</strong> currency through UnBound.</p>
+            </li>
+        </ul>
+        <li>
+            <strong><u>Nature of Engagement and Duties of the Team Member.</u></strong> The Company is engaging Team Member to 
+            <ul>
+                <br>
+                <li>
+                    <strong></strong>{{individual.milestone}}</strong>.
+                </li>
+                <ul>
+                    <br>
+                    <li>
+                        <strong>{{individual.milestoneDescription}}</strong>
+                    </li>
+                </ul>
+            </ul>
+        </li>
+        <br>
+        <li>
+            <strong><u>Expenses.</u></strong> Except for expenditures authorized by the Company in advance, Team Member shall be responsible for paying expenses incurred in the performance of services under this Agreement. In order for approved expenses to be paid for or reimbursed by the Company, Team Member must comply with the Company's Guidelines. For necessary and reasonable travel and lodging expenses that Team Member incurs at the Company's request related to out-of-town work, the Company will either: (a) pay the expense directly; or (b) reimburse Team Member for the expense subject to the conditions in this Section. 
+        </li>
+        <br>
+        <li>
+            <strong><u>Not an Employee.</u></strong> The Team Member shall use the Team Member's own judgment as to the specific details related to how the Team Member completes assigned duties. As such, nothing contained herein shall be construed to create the relationship of employer and employee between the Company and the Team Member. The Team Member shall hold him/herself out as an employee of the Company. 
+        </li>
+        <br>
+        <li>
+            <strong><u>Taxes; Benefits</u></strong>: Because this Agreement creates an independent contractor relationship, the Parties understand that the Company has no obligation to withhold any state or federal income taxes, social security, or other taxes from payments to Team Member, nor shall it make any workers' compensation or unemployment benefit payments or contributions on behalf of Team Member. Team Member shall not be eligible for any benefit, retirement, workers compensation or insurance plans provided by the Company. The Company will issue a Form 1099 for all compensation paid to Team Member, and it is Team Member's obligation to report and pay all federal, state and local income, payroll, self-employment and other taxes due on all compensation from the Company as may be required by law, including any estimated or quarterly taxes that may be due.
+        </li>
+        <br>
+        <li>
+            <strong><u>Conflicts.</u></strong> It is expected that Team Member will be engaged in business and commercial activities for other parties as an independent contractor during the Term. However, Team Member shall not engage in any activity during the Term that: (a) is competitive with the Company's work; or (b) would cause Team Member to breach any term of this Agreement. 
+        </li>
+        <br>
+        <li>
+            <strong><u>Confidential Information.</u></strong> Team Member promises and agrees that, except to the extent the use or disclosure of any Confidential Information (as defined below) is required to carry out Team Member's assigned duties with the Company, during the Term: (a) Team Member shall keep strictly confidential and not disclose to any person not employed or engaged by the Company any Confidential Information; and (b) Team Member shall not use for Team Member or for any other person or entity any Confidential Information. However, this provision shall not preclude Team Member: (i) from the use or disclosure of information known generally to the public (other than information known generally to the public as a result of Team Member's violation of this Section); or (ii) from any disclosure required by law or court order so long as Team Member provides the Company immediate written notice of any potential disclosure under this subsection. “Confidential Information” means all confidential, proprietary or business information related to the Company or its business that is furnished to, obtained by, or created by Team Member during the Term and which could be used to compete against the Company or harm the Company or its officers, owners, employees or agents. Confidential Information includes, by way of illustration, such information relating to: (i) Company customers, including customer lists, contact information, contractual terms, billing histories, and preferences; (ii) the Company's finances, including financial statements, balance sheets, sales data, forecasts, and cost analyses; (iii) the Company's plans and projections for business opportunities for new or developing business, including marketing concepts and business plans; (iv) the Company's research and development activities, technical data, manufacturing technologies, computer files, and software; and (v) the Company's operating methods, business processes, services, products, prices, costs, service performance, and operating results.  
+        </li>
+        <br>
+        <li>
+            <strong><u>Return of Property.</u></strong> Team Member agrees that all Confidential Information that comes into Team Member's possession, including Confidential Information created by Team Member, is and shall remain the property of the Company. Team Member further agrees to immediately provide to the Company upon the Company's request (and, in any event, at the end of the Term) all documents, data, information and other property belonging to the Company in Team Member's possession or control, regardless of how stored or maintained and including all originals and copies. 
+        </li>
+        <br>
+        <li>
+            <strong><u>Agreement Confidentiality.</u></strong> The Parties agree that except as mutually agreed to or as otherwise required by law, the terms of this Agreement shall be maintained in strict confidence.
+        </li>
+        <br>
+        <li>
+            <strong><u>Miscellaneous.</u></strong> This Agreement shall be governed by and construed in accordance with the laws of the State of Florida without regard to any conflict-of-law principles. No modification, termination, or attempted waiver of any of the provisions of this Agreement shall be binding upon the Company unless reduced to writing and signed by a duly authorized Company official. This Agreement shall be construed according to a plain reading of its terms and no presumption or burden of proof shall arise favoring or disfavoring any party by virtue of the authorship of any provision in this Agreement.
+        </li>
+        <br>
+        <li>
+            <strong><u>Entire Agreement. </u></strong>This Agreement constitutes the entire agreement among the parties pertaining to the subject matter contained herein and supersedes any and all prior and contemporaneous agreements, representations and understandings of the parties related to the subject matter contained herein. 
+        </li>
+    </ol>
+    <p><strong>IN WITNESS WHEREOF,</strong> the undersigned herto set their hands and seals as f the dates set forth below.</p>
+    <br>
+    <br>
+    <h4><strong>TEAM MEMBER:</strong></h4>
+    <ul>
+        <li>
+            <strong>By:___________________</strong>
+        </li>
+        <li>
+            <strong>Date:___________________</strong>
+        </li>
+        <li>
+            <strong>Printed Name:___________________</strong>
+        </li>
+    </ul>
+    <h4><strong>TEAM COMPANY:</strong></h4>
+    <ul>
+        <li>
+            <strong>By:___________________</strong>
+        </li>
+        <li>
+            <strong>Date:___________________</strong>
+        </li>
+        <li>
+            <strong>Printed Name:___________________</strong>
+        </li>
+        <li>
+            <strong>Title:___________________</strong>
+        </li>
+    </ul>
 </body>
 </html>
