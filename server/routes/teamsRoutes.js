@@ -6,7 +6,7 @@ const authenticate = require("../middleware/authenticate");
 router
     .route("/")
     .get(authenticate, teamsController.entireTeam)
-    .post(teamsController.addTeamMember);
+    .post(authenticate, teamsController.addTeamMember);
 
 router
     .route("/:id")

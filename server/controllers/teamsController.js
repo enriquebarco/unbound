@@ -3,6 +3,7 @@ const knex = require("../knexConfig");
 exports.entireTeam = (req, res) => {
     knex("teams")
     .where({ users_id: req.user.id })
+    .orderBy("id", "desc")
     .then((data) => {
         res.status(200).json(data);
     })
@@ -28,6 +29,7 @@ exports.teamMemberPayments = (req,res) => {
         .from("teams")
         .join("payments", "payments.teams_id", "teams.id")
         .where( { teams_id: req.params.id })
+        .orderBy("id", "desc")
         .then((data) => {
             if(!data.length) {
                 return res.sendStatus(404)
@@ -37,8 +39,14 @@ exports.teamMemberPayments = (req,res) => {
 };
 
 exports.addTeamMember = (req,res) => {
+    const body = req.body;
+    const users_id = req.user.id;
+    body["users_id"] = users_id;
+
+    console.log(body);
+
     knex("teams")
-        .insert(req.body)
+        .insert(body)
         .then((data) => {
             res.status(200).json(data);
         })

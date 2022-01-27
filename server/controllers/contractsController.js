@@ -56,11 +56,10 @@ const generatePdf = async (req,res,next) => {
     }
 
     const filepath = process.env.BASE_URL + "/contracts/" + filename
-    console.log(filepath);
   
     pdf.create(document, options)
-        .then(res => {
-            return res;
+        .then(pdfResponse => {
+            res.send(filepath);
         })
         .catch(error => {
             console.log(error);
