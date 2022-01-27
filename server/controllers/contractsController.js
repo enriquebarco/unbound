@@ -1,7 +1,7 @@
 const fs = require("fs");
 const pdf = require("pdf-creator-node");
 const path = require("path");
-const { json } = require("express");
+
 
 
 // data to be used in PDF
@@ -26,9 +26,13 @@ const options = {
 const generatePdf = async (req,res,next) => {
     const html = fs.readFileSync(path.join(__dirname, "../contracts/template.html"), "utf8")
 
-    const filename = new Date().toISOString().split('T')[0] + data[0].name + "_doc" + ".pdf";
-
     const { businessName, name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = data[0]
+
+    //creating the filepath
+    const fileCreationDate = new Date().toISOString().split('T')[0];
+    const teamMemberName = name.split(" ").join("");
+
+    const filename = fileCreationDate + teamMemberName + "_doc.pdf"
 
     let individual = {
                 businessName: businessName.toUpperCase(),
@@ -51,32 +55,30 @@ const generatePdf = async (req,res,next) => {
         type: ""
     }
 
-    const filepath = 
+    const filepath = process.env.BASE_URL + "/contracts/" + filename
+    console.log(filepath);
   
     pdf.create(document, options)
         .then(res => {
-            console.log(res);
-            res.status(200).send(res)
+            return res;
         })
         .catch(error => {
             console.log(error);
         });
-    
-    
 }
 
 const createData = (req, res) => {
 
-    const { businessName, name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = req.body
+    const { name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = req.body
 
-    if(!businessName || !name || !country || !startDate || !terminationPeriod || !jobTitle || !milestone || !milestoneDescription || !prefCurrency || !paymentAmount) {
+    if(!name || !country || !startDate || !terminationPeriod || !jobTitle || !milestone || !milestoneDescription || !prefCurrency || !paymentAmount) {
         return res.status(400).send("Error, missing necessary parameters")
     }
 
     newDataArr = []
 
     const newData = {
-            businessName,
+            businessName: req.user.businessName,
             name,
             country,
             startDate,
