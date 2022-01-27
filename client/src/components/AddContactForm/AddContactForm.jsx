@@ -1,10 +1,10 @@
 import React from 'react';
 import Input from "../../components/Input/Input";
 
-export default function AddContactForm() {
+export default function AddContactForm( { handleForm } ) {
   return(
     <main className="add-contract__container">
-        <form className="add-contract__form" onSubmit={"PLACEHOLDER"}>
+        <form className="add-contract__form" onSubmit={handleForm}>
             <h1 className="signup__title">Create a new contract</h1>
 
             <Input type="text" name="name" label="Full name" />

@@ -5,15 +5,8 @@ import axios from "axios";
 
 const url = process.env.REACT_APP_BASE_URL
 
-const handlePaymentAdd = () => {
-    
-
-    debugger;
-}
-
 const StripeCheckout = ( { id, paymentAmount, name, milestone, token }) => {
-
-    const stripe = useStripe();
+const stripe = useStripe();
 
 
     const handlePayment = async () => {
