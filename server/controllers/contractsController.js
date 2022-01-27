@@ -1,7 +1,7 @@
 const fs = require("fs");
 const pdf = require("pdf-creator-node");
-const data = require("../contracts/contractsData");
-
+const path = require("path");
+const data = require("../contracts/contractsData/data");
 
 const options = {
     format: "A4",
@@ -9,7 +9,7 @@ const options = {
     border: "10mm",
     header: {
         height: "45mm",
-        contents: <header style="text-align: center;">Contract</header>
+        contents: '<h1 style="text-align: center;">Contract Agreement</h1>' 
     },
     footer: {
         height: "28mm",
@@ -23,15 +23,32 @@ const options = {
 };
 
 const generatePdf = async (req,res,next) => {
-    const html = fs.readFileSync(path.join(__dirname, "../contracts/template.html"), "utf-8")
-    const filename = Math.random() + "_doc" + ".pdf";
+    const html = fs.readFileSync(path.join(__dirname, "../contracts/template.html"), "utf8")
+
+    const filename = new Date().toISOString().split('T')[0] + data[0].name + "_doc" + ".pdf";
+
+    const { name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = data[0]
+
+    let individual = {
+                name,
+                country,
+                startDate,
+                endDate,
+                terminationPeriod,
+                jobTitle,
+                milestone,
+                milestoneDescription,
+                prefCurrency,
+                paymentAmount,
+    };
 
     const document = {
         html: html,
-        data: data,
-        path: "./contracts/" + filename
+        data: {individual},
+        path: "./contracts/" + filename,
+        type: ""
     }
-
+  
     pdf.create(document, options)
         .then(res => {
             console.log(res);
@@ -39,5 +56,9 @@ const generatePdf = async (req,res,next) => {
         .catch(error => {
             console.log(error);
         });
-        // const filepath = 
+}
+
+
+module.exports = {
+    generatePdf
 }
