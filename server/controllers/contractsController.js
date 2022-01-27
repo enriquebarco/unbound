@@ -50,14 +50,19 @@ const generatePdf = async (req,res,next) => {
         path: "./contracts/" + filename,
         type: ""
     }
+
+    const filepath = 
   
     pdf.create(document, options)
         .then(res => {
             console.log(res);
+            res.status(200).send(res)
         })
         .catch(error => {
             console.log(error);
         });
+    
+    
 }
 
 const createData = (req, res) => {
