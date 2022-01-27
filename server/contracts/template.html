@@ -9,10 +9,10 @@
 </head>
 <body>
 
-    <!-- when converting to PDF, the styles only work when coded directly into the html   -->
+    <!-- when converting to PDF, styling only works when coded directly into the html   -->
 
-    <h2 style="text-align: center;" > {{individual.name}} & <br> {{individual.businessName}}</h2>
-    <p><strong>THIS CONTRACTOR AGREEMENT</strong> (the <u>“Agreement”</u>) is made and entered into by and between {{individual.name}}, an individual with its principal place of business in {{individual.country}} (“the Team Member”) and <strong>{{individual.businessName}}</strong>, a Florida corporation with its principal place of business in Key Biscayne, Florida (the <u>“Company”</u>) (the Team Member and the Company are collectively referred to as the <u>“Parties”</u>).</p>
+    <h3 style="text-align: center;" > {{individual.name}} & <br> {{individual.businessName}}</h3>
+    <p><strong>THIS CONTRACTOR AGREEMENT</strong> (the <u>“Agreement”</u>) is made and entered into by and between <strong>{{individual.name}}</strong>, an individual with its principal place of business in {{individual.country}} (“the Team Member”) and <strong>{{individual.businessName}}</strong>, a Florida corporation with its principal place of business in Key Biscayne, Florida (the <u>“Company”</u>) (the Team Member and the Company are collectively referred to as the <u>“Parties”</u>).</p>
 
     <p>In consideration of the mutual covenants contained herein and the Company's agreement to engage Team Member, the Parties agree to the following terms and conditions. Intern acknowledges and agrees that this Agreement is supported by good and valid consideration. </p>
 
@@ -30,16 +30,16 @@
             </li>
         </ul>
         <li>
-            <strong><u>Nature of Engagement and Duties of the Team Member.</u></strong> The Company is engaging Team Member to 
+            <strong><u>Nature of Engagement and Duties of the Team Member.</u></strong>  
             <ul>
                 <br>
                 <li>
-                    <strong></strong>{{individual.milestone}}</strong>.
+                    <strong>{{individual.milestone}}</strong>:
                 </li>
                 <ul>
                     <br>
                     <li>
-                        <strong>{{individual.milestoneDescription}}</strong>
+                        {{individual.milestoneDescription}}
                     </li>
                 </ul>
             </ul>

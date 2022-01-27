@@ -1,7 +1,9 @@
 const fs = require("fs");
 const pdf = require("pdf-creator-node");
 const path = require("path");
-const data = require("../contracts/contractsData/data");
+
+const grabData = fs.readFileSync("./contracts/contractsData/data.json");
+const data = JSON.parse(grabData);
 
 const options = {
     format: "A4",
