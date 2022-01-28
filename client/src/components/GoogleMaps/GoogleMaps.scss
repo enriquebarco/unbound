@@ -1,0 +1,16 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.google-maps {
+    &__container {
+        @include card;
+        border-radius: rem;
+        height: 40vh;
+        width: 50%
+    }
+
+    &__element {
+        border-radius: .5rem;
+        height: 100%;
+    }
+}

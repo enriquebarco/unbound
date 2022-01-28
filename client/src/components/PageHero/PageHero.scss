@@ -1,0 +1,9 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 6rem;
+    align-items: center;
+}

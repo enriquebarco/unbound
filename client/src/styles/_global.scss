@@ -1,3 +1,6 @@
+@use "../styles/typography" as *;
+@use "../styles/variables" as *;
+
 *,
 **::before,
 **::after {
@@ -6,5 +9,6 @@
 
 body {
   font-family: "Montserrat";
+  font-variation-settings: "wght" 400;
   margin: 0rem;
 }

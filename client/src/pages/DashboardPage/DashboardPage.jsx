@@ -4,6 +4,7 @@ import Landing from '../../components/Landing/Landing';
 import DashboardList from '../../components/DashboardList/DashboardList';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import PageFooter from '../../components/PageFooter/PageFooter';
+import PageHero from '../../components/PageHero/PageHero';
 
 const URL = process.env.REACT_APP_BASE_URL
 
@@ -15,6 +16,7 @@ export class DashboardPage extends Component {
     }
     
     componentDidMount() {
+        document.title = "Dashboard"
         const token = sessionStorage.getItem("token");
 
         if(!token) {
@@ -54,6 +56,7 @@ export class DashboardPage extends Component {
     return(
         <>
             <PageHeader />
+            <PageHero />
             <DashboardList data={this.state.teams} token={sessionStorage.getItem('token')} />
             <PageFooter />
         </>

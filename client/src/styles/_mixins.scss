@@ -1,0 +1,13 @@
+@use "../styles/variables" as *;
+
+@mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  }
+
+@mixin card {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 0.5rem;
+}

@@ -1,15 +1,30 @@
 @use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 
 .header {
+    @include card;
+    border-radius: 0;
     background: linear-gradient(.6turn, $color-primary, $color-interactive-elements, $color-primary);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    @include desktop {
+        padding: 1.5rem 6rem;
+    }
 
     &__logo {
-        width: 15rem;
-        margin: 2rem 0rem;
-        margin-left: 6rem;
+        width: 12rem;
+
+        @include desktop {
+            width: 15rem;
+        }
 
         &:hover {
             animation-name: pulse;
@@ -19,13 +34,11 @@
     &__nav-container {
         display: flex;
         justify-content: center;
-        margin: 2rem 0rem;
-        margin-right: 6rem;
     }
 
     &__link {
         text-decoration: none;
-        margin: 0 1rem;
+        margin: 0 .25rem;
         position: relative;
 
             &::before {
@@ -48,6 +61,12 @@
 
     &__nav-item {
         color: $color-global-white;
-        padding: 0 1rem;
+        padding: 0 .625rem;
+        font-size: 1rem;
+
+        @include desktop {
+            font-size: 1.25rem;
+            padding: 0rem .75rem;
+        }
     }
 }
