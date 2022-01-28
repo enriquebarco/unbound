@@ -2,6 +2,7 @@ import React from "react";
 import { useStripe } from "@stripe/react-stripe-js";
 import { fetchFromAPI } from "../../helpers";
 import axios from "axios";
+import "./StripeCheckout.scss";
 
 const url = process.env.REACT_APP_BASE_URL
 
