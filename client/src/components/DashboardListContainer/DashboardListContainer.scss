@@ -1,0 +1,6 @@
+@use "../../styles/mixins" as *;
+
+.dashboard-list-container {
+    @include card;
+    margin: 4rem 6rem;
+}
