@@ -4,7 +4,7 @@ import DashboardItem from '../DashboardItem/DashboardItem';
 export default function DashboardList( { data, token } ) {
 
     return(
-        <div className="list">
+        <div className="dashboard-list__container">
             {data.map(team => {
                 return <DashboardItem
                     key={team.id}

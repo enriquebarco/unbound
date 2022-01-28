@@ -5,6 +5,8 @@ import DashboardList from '../../components/DashboardList/DashboardList';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import PageFooter from '../../components/PageFooter/PageFooter';
 import PageHero from '../../components/PageHero/PageHero';
+import DashboardListHeading from '../../components/DashboardListHeading/DashboardListHeading';
+import DashboardListContainer from '../../components/DashboardListContainer/DashboardListContainer';
 
 const URL = process.env.REACT_APP_BASE_URL
 
@@ -57,7 +59,9 @@ export class DashboardPage extends Component {
         <>
             <PageHeader />
             <PageHero />
-            <DashboardList data={this.state.teams} token={sessionStorage.getItem('token')} />
+            <DashboardListContainer 
+                data={this.state.teams} 
+                token={sessionStorage.getItem('token')} />
             <PageFooter />
         </>
     );

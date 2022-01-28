@@ -19,3 +19,10 @@
         color: $color-third;
     }
 }
+
+.break {
+    &::after {
+        content: "\A";
+        white-space: pre;
+    }
+}
