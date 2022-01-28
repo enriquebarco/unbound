@@ -1,0 +1,51 @@
+@use "../../styles/variables" as *;
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to left top, $color-primary, $color-interactive-elements);
+    padding: 2rem 6rem;
+
+    &__logo {
+        width: 10rem;
+    }
+
+    &__contact-title {
+        color: $color-global-white;
+        text-transform: uppercase;
+        font-size: 1rem;
+        margin: 0rem;
+    }
+
+    &__email {
+        text-decoration: none;
+        color: $color-global-white;
+        margin-top: .5rem;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: .0625rem;
+            background-color: $color-global-white;
+            transition: transform 300ms ease-in-out;
+
+            transform: scaleX(0);
+        }
+
+        &:hover::before {
+            transform: scaleX(1);
+        }
+    }
+
+    &__social-wrapper {
+        display: flex;
+    }
+
+    &__social-icon {
+        width: 2rem;
+    }
+}

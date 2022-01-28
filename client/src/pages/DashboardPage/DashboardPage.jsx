@@ -3,6 +3,7 @@ import axios from "axios";
 import Landing from '../../components/Landing/Landing';
 import DashboardList from '../../components/DashboardList/DashboardList';
 import PageHeader from '../../components/PageHeader/PageHeader';
+import PageFooter from '../../components/PageFooter/PageFooter';
 
 const URL = process.env.REACT_APP_BASE_URL
 
@@ -54,6 +55,7 @@ export class DashboardPage extends Component {
         <>
             <PageHeader />
             <DashboardList data={this.state.teams} token={sessionStorage.getItem('token')} />
+            <PageFooter />
         </>
     );
   }
