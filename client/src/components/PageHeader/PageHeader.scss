@@ -10,6 +10,10 @@
         width: 15rem;
         margin: 2rem 0rem;
         margin-left: 6rem;
+
+        &:hover {
+            animation-name: pulse;
+        }
     }
     
     &__nav-container {
@@ -37,8 +41,7 @@
                 transform: scaleX(0);
             }
 
-            &:hover::before,
-            &:focus::before {
+            &:hover::before {
                 transform: scaleX(1);
             }
     }
