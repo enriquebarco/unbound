@@ -1,0 +1,50 @@
+@use "../../styles/variables" as *;
+
+
+.header {
+    background: linear-gradient(#00204a, #00204ada);
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+        width: 15rem;
+        margin: 2rem 0rem;
+        margin-left: 6rem;
+    }
+    
+    &__nav-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0rem;
+        margin-right: 6rem;
+    }
+
+    &__link {
+        text-decoration: none;
+        margin: 0 1rem;
+        position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: .0625rem;
+                background-color: $color-global-white;
+                transition: transform 300ms ease-in-out;
+
+                transform: scaleX(0);
+            }
+
+            &:hover::before,
+            &:focus::before {
+                transform: scaleX(1);
+            }
+    }
+
+    &__nav-item {
+        color: $color-global-white;
+        padding: 0 1rem;
+    }
+}
