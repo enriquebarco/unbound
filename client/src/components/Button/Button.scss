@@ -1,4 +1,6 @@
-/* only animate if the device supports hover */
+@use "../../styles/variables" as *;
+
+
 @media (hover: hover) {
     #creditcard {
       /*  set start position */
@@ -53,8 +55,8 @@
     position: relative;
     border-radius: 8px;
     letter-spacing: 0.7px;
-    background-color: #5086bd;
-    color: #fff;
+    background-color: $color-button;
+    color: $color-global-white;
     font-size: 1rem;
     cursor: pointer;
     box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;

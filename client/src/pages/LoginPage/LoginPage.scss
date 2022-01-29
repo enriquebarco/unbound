@@ -1,47 +1,85 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+
 .login-page {
-    background-color: #f5f5f5;
+    background: linear-gradient(.5turn, $color-primary, $color-secondary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+
+    &__logo {
+        width: 20rem;
+        margin-bottom: 3rem;
+    }
+
+    &__text {
+        font-variation-settings: "wght" 600;
+        color: $color-third;
+    }
+
+    &__link {
+        color: #2fa8a2;
+        text-decoration: none;
+        position: relative;
+        padding: .25rem 0rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: .0625rem;
+            background-color: #2fa8a2;
+            transition: transform 300ms ease-in-out;
+
+            transform: scaleX(0);
+        }
+
+        &:hover::before {
+            transform: scaleX(1);
+        }
+    }
 }
 
 .login {
+    @include card;
     display: flex;
     flex-direction: column;
     width: 22rem;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border-radius: 0.5rem;
     padding: 2rem 1.5rem;
     margin-bottom: 1rem;
 
     &__title {
         margin-top: 0;
         margin-bottom: 1.5rem;
-
         text-align: center;
         font-size: 1.5rem;
-        border-bottom: 5px solid #ffcf00;
+        font-variation-settings: "wght" 600;
+        color: $color-primary;
+        border-bottom: .125rem solid $color-third;
         padding-bottom: 0.5rem;
         align-self: center;
     }
 
     &__button {
+        @include button-primary;
         margin-top: 1rem;
-        background-color: #1358db;
-        border: 1px solid #1358db;
-        color: #fff;
-        border-radius: 0.5rem;
-        padding: 0.5rem;
+        padding: .75rem;
         font-size: inherit;
+        width: 70%;
+        align-self: center;
+        font-variation-settings: "wght" 700;
         cursor: pointer;
         transition: background-color 0.15s;
+        color: $color-global-white;
 
         &:hover {
-            background-color: #003fc2;
+            box-shadow: $color-third 0 .1875rem .5rem;
         }
     }
 
@@ -51,3 +89,5 @@
         margin-top: 2rem;
     }
 }
+
+
