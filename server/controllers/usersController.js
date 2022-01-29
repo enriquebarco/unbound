@@ -4,6 +4,11 @@ const jwt = require("jsonwebtoken");
 const JWT_KEY = process.env.JWT_KEY;
 
 exports.registerUser = (req, res) => {
+    
+    if(!email || !password || !businessName || !country) {
+        return res.status(400).send("Please enter the required fields");
+    }
+
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
     const newUser = {
         ...req.body,

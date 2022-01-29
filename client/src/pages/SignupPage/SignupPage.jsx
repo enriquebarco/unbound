@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios"
 import Input from '../../components/Input/Input';
+import Logo from "../../assets/Logo/Logo Files/For Web/svg/Color logo - no background.svg"
+import "./SignupPage.scss";
 
-const {URL} = process.env.REACT_APP_BASE_URL
+
+const URL = process.env.REACT_APP_BASE_URL;
 
 export default class SignupPage extends Component {
     state = {
@@ -13,6 +16,20 @@ export default class SignupPage extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+
+        const validRegexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        if(!event.target.email.value || event.target.password.value || event.target.business.value || event.target.country.value) {
+            const input = document.getElementsByTagName('input');
+            for (let i = 0; i < input.length; i++) {
+            input[i].style.borderColor = "red";
+            }
+            
+            if (!event.target.email.value.match(validRegexEmail)) {
+                return alert("Please enter valid email: example@email.com");
+            } 
+        }
+
 
         axios
             .post(`${URL}/users/register`, {
@@ -34,6 +51,7 @@ export default class SignupPage extends Component {
   render() {
     return(
         <main className="signup-page">
+            <img src={Logo} alt="" className="signup-page__logo" />
             <form className="signup" onSubmit={this.handleSubmit}>
                 <h1 className="signup__title">Sign up</h1>
 
@@ -47,8 +65,8 @@ export default class SignupPage extends Component {
                 {this.state.success && <div className="signup__message">Signed up!</div>}
                 {this.state.error && <div className="signup__message">{this.state.error}</div>}
                 </form>
-                <p>
-                Have an account? <Link to="/login">Log in</Link>
+                <p className="signup-page__text">
+                Have an account? <Link to="/login" className="signup-page__link">Log in</Link>
                 </p>
         </main>
     )

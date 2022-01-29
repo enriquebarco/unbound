@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Landing from '../../components/Landing/Landing';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import AddContactForm from '../../components/AddContactForm/AddContactForm';
+import AddContractForm from '../../components/AddContractForm/AddContractForm';
 
 const URL = process.env.REACT_APP_BASE_URL
 
@@ -25,14 +25,7 @@ export class NewContractPage extends Component {
             for (let i = 0; i < input.length; i++) {
                 input[i].style.borderColor = "red";
             };
-            
-            const span = document.getElementsByTagName('span');
-            for (let i = 0; i<span.length; i++) {
-                console.log(span[i])
-                span[i].classList.remove("form-valid");
-                span[i].classList.add("form-error")
-            }
-            return alert("Please fill in all values."); 
+
         };
         
         this.setState({
@@ -92,7 +85,8 @@ export class NewContractPage extends Component {
     return(
         <>
             <PageHeader />
-            <AddContactForm handleForm={this.handleForm}/>
+            <AddContractForm handleForm={this.handleForm}/>
+            {/* {this.state.loading && <LoadingModal />} */}
         </>
     );
   }
