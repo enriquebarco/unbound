@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import StripeCheckout from '../StripeCheckout/StripeCheckout';
 import Icon from "../../assets/Icons/contract.png";
 import "./DashboardItem.scss"
@@ -7,7 +8,9 @@ export default function DashboardItem( { id, name, country, jobTitle, contract, 
   return(
       <div className="dashboard-item">
         <div className="dashboard-item__container">
-            <h3 className="dashboard-item__text">{name}</h3>
+            <Link to={"/payments/" + id} className="dashboard-item__individual-link">
+                <h3 className="dashboard-item__text  dashboard-item__name">{name}</h3>
+            </Link>
         </div>
         <div className="dashboard-item__container">
             <h3 className="dashboard-item__text">{jobTitle}</h3>

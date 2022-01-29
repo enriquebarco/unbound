@@ -11,8 +11,9 @@ const URL = process.env.REACT_APP_BASE_URL
 export class NewContractPage extends Component {
 
     state = {
+        success: false,
         isContract: true,
-        isLoading: true,
+        isLoading: false,
         failedAuth: false
     }
     
@@ -21,7 +22,11 @@ export class NewContractPage extends Component {
         const token = sessionStorage.getItem('token');
     
         if(!token) {
-            this.setState({ failedAuth: true });
+            this.setState({ 
+
+                failedAuth: true,
+
+             });
             return;
         }
     }
@@ -67,7 +72,7 @@ export class NewContractPage extends Component {
                 return axios.get(URL + "/contracts")
             })
             .then((response) => {
-                window.open(response.data, '_blank').focus()
+                window.open(response.data, '_blank').focus();
                 body.contract = response.data
                 console.log(body);
                 axios.post(URL + "/teams", body, {
@@ -77,7 +82,7 @@ export class NewContractPage extends Component {
                 })
             })
             .then(() => {
-                <Redirect to="/" />
+                this.setState({success:true})
             })
             .catch((err) => console.log(err))
     }
@@ -95,6 +100,7 @@ export class NewContractPage extends Component {
             <PageHeader />
             <AddContractForm handleForm={this.handleForm}/>
             {this.state.isLoading && <LoadingJoke />}
+            {this.state.success && <Redirect to="/" />}
         </>
     );
   }
