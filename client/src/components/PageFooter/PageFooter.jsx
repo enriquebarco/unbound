@@ -11,7 +11,7 @@ export default function PageFooter() {
   return(
     <footer className="footer">
         <img className="footer__logo" src={Logo} alt="unbound logo" />
-        <div classname="footer__contact-wrapper">
+        <div className="footer__contact-wrapper">
             <h5 className="footer__contact-title">CONTACT</h5>
             <a className="footer__email" href="mailto:enrique@unbound">enrique@unbound.com</a>
         </div>
