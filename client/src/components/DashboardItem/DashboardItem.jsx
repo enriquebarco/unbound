@@ -16,7 +16,7 @@ export default function DashboardItem( { id, name, country, jobTitle, contract, 
             <h3 className="dashboard-item__text">{country}</h3>
         </div>
         <div className="dashboard-item__container">
-            <a href={contract} className="dashboard-item__link">
+            <a target="_blank" href={contract} className="dashboard-item__link">
                 <img src={Icon} alt="contract icon" className="dashboard-item__icon" />
             </a>
         </div>
