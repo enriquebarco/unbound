@@ -1,0 +1,72 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.loading-joke {
+    width: 100vw;
+    height: 50vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    &__container {
+        @include card;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30rem;
+        padding:  2rem 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-variation-settings: "wght" 600;
+        color: $color-primary;
+        padding-bottom: 0.5rem;
+        align-self: center;
+    }
+
+    &__contract-icon {
+        width: 5rem;
+        animation: spin 3s linear infinite;
+    }
+
+    &__prefix {
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+        font-size: 1.25rem;
+        font-variation-settings: "wght" 600;
+    }
+
+    &__buildup {
+        font-size: 1rem;
+        text-align: center;
+        padding: 0rem 2rem;
+    }
+
+    &__punchline {
+        font-size: .875rem;
+    }
+
+    &__ship {
+        width: 3rem;
+        padding: .5rem;
+    }
+
+    &__span {
+        font-variation-settings: "wght" 600;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -4,13 +4,15 @@ import axios from "axios";
 import Landing from '../../components/Landing/Landing';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import AddContractForm from '../../components/AddContractForm/AddContractForm';
+import LoadingJoke from '../../components/LoadingJoke/LoadingJoke';
 
 const URL = process.env.REACT_APP_BASE_URL
 
 export class NewContractPage extends Component {
 
     state = {
-        loading: false,
+        isContract: true,
+        isLoading: true,
         failedAuth: false
     }
     
@@ -40,7 +42,7 @@ export class NewContractPage extends Component {
         };
         
         this.setState({
-            loading: true,
+            isLoading: true,
         });
 
         let body = {
@@ -91,8 +93,8 @@ export class NewContractPage extends Component {
     return(
         <>
             <PageHeader />
-            {!this.state.loading && <AddContractForm handleForm={this.handleForm}/>}
-            {/* {this.state.loading && <LoadingJoke />} */}
+            <AddContractForm handleForm={this.handleForm}/>
+            {this.state.isLoading && <LoadingJoke />}
         </>
     );
   }
