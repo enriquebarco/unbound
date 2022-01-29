@@ -43,7 +43,7 @@ export class NewContractPage extends Component {
             name: event.target.name.value,
             country: event.target.country.value,
             startDate: event.target.startDate.value,
-            endDate: event.target.endDate.value,
+            endDate: event.target.endDate.value || null,
             terminationPeriod: event.target.terminationPeriod.value,
             jobTitle: event.target.jobTitle.value,
             milestone: event.target.milestone.value,
