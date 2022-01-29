@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import Landing from '../../components/Landing/Landing';
 import PageHeader from '../../components/PageHeader/PageHeader';
@@ -11,6 +12,16 @@ export class NewContractPage extends Component {
     state = {
         loading: false,
         failedAuth: false
+    }
+    
+    componentDidMount() {
+        document.title = "contracts - unbound"
+        const token = sessionStorage.getItem('token');
+    
+        if(!token) {
+            this.setState({ failedAuth: true });
+            return;
+        }
     }
 
     handleForm = (event) => {
@@ -63,17 +74,12 @@ export class NewContractPage extends Component {
                     }
                 })
             })
+            .then(() => {
+                <Redirect to="/" />
+            })
             .catch((err) => console.log(err))
     }
     
-    componentDidMount() {
-        const token = sessionStorage.getItem('token');
-
-        if(!token) {
-            this.setState({ failedAuth: true });
-            return;
-        }
-    }
         
   render() {
       if (this.state.failedAuth) {
@@ -85,8 +91,8 @@ export class NewContractPage extends Component {
     return(
         <>
             <PageHeader />
-            <AddContractForm handleForm={this.handleForm}/>
-            {/* {this.state.loading && <LoadingModal />} */}
+            {!this.state.loading && <AddContractForm handleForm={this.handleForm}/>}
+            {/* {this.state.loading && <LoadingJoke />} */}
         </>
     );
   }
