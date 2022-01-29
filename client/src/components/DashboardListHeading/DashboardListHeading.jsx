@@ -10,7 +10,7 @@ export default function DashboardListHeading() {
             <h3 className="list-heading__title">Contract</h3>
             <h3 className="list-heading__title">Preferred Currency</h3>
             <h3 className="list-heading__title">Payment Amount</h3>
-            <h3 className="list-heading__title">Pay</h3>
+            <h3 className="list-heading__title">Send Payment</h3>
         </div>
     );
 }

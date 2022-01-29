@@ -3,6 +3,7 @@ import { useStripe } from "@stripe/react-stripe-js";
 import { fetchFromAPI } from "../../helpers";
 import axios from "axios";
 import "./StripeCheckout.scss";
+import Button from "../Button/Button.jsx";
 
 const url = process.env.REACT_APP_BASE_URL
 
@@ -43,7 +44,7 @@ const stripe = useStripe();
     }
     
     return (
-        <button 
+        <div
         onClick={() => {
             axios.post(url + "/payments" , {
                 dateSent: new Date().toISOString().slice(0, 10),
@@ -58,8 +59,8 @@ const stripe = useStripe();
         }} 
         type="submit" 
         className="stripe-checkout-button">
-            Send Payment
-        </button>
+            <Button />
+        </div>
     ) 
 }
 
