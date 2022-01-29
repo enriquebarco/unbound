@@ -39,7 +39,9 @@ export class LoginPage extends Component {
   render() {
     return( 
         <main className="login-page">
-            <img src={Logo} alt="" className="login-page__logo animate__animated animate__fadeIn" />
+            <Link to="/" >
+                <img src={Logo} alt="" className="login-page__logo animate__animated animate__fadeIn" />
+            </Link>
         <form className="login animate__animated animate__fadeIn" onSubmit={this.handleSubmit}>
             <h2 className="login__title">Log in</h2>
 
