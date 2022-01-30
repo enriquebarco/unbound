@@ -1,0 +1,12 @@
+@use "../../styles/mixins" as *;
+
+.payment-container {
+    display: flex;
+    margin: 3rem 6rem;
+
+    &__list {
+        @include card;
+        margin-left: auto;
+        width: 52rem;
+    }
+}

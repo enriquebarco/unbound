@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Landing from '../../components/Landing/Landing';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import TeamProfile from '../../components/TeamProfile/TeamProfile';
 import PaymentListContainer from '../../components/PaymentListContainer/PaymentListContainer';
 import "./PaymentsPage.scss";
 
