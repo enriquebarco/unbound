@@ -30,7 +30,6 @@ export class PaymentsPage extends Component {
             }
         })
         .then((response) => {
-            console.log(response);
             this.setState({
                 team: response.data
             })

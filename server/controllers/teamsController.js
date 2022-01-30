@@ -17,6 +17,7 @@ exports.teamMemberPayments = (req,res) => {
         .from("teams")
         .join("payments", "payments.teams_id", "teams.id")
         .where( { teams_id: req.params.id })
+        .orderBy("payments.id", "desc")
         .then((data) => {
             if(!data.length) {
                 return res.sendStatus(404)
