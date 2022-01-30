@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Landing from '../../components/Landing/Landing';
-import DashboardList from '../../components/DashboardList/DashboardList';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import PageFooter from '../../components/PageFooter/PageFooter';
 import PageHero from '../../components/PageHero/PageHero';
-import DashboardListHeading from '../../components/DashboardListHeading/DashboardListHeading';
 import DashboardListContainer from '../../components/DashboardListContainer/DashboardListContainer';
 
 const URL = process.env.REACT_APP_BASE_URL
@@ -18,7 +16,7 @@ export class DashboardPage extends Component {
     }
     
     componentDidMount() {
-        document.title = "Dashboard"
+        document.title = "dashboard - unbound"
         const token = sessionStorage.getItem("token");
 
         if(!token) {

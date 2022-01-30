@@ -4,6 +4,7 @@ import axios from "axios"
 import Input from '../../components/Input/Input';
 import Logo from "../../assets/Logo/Logo Files/For Web/svg/Color logo - no background.svg"
 import "./SignupPage.scss";
+import 'animate.css';
 
 
 const URL = process.env.REACT_APP_BASE_URL;
@@ -13,6 +14,10 @@ export default class SignupPage extends Component {
         error: "",
         success: false,
     };
+
+    componentDidMount() {
+        document.title = "signup - unbound"
+    }
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -50,9 +55,9 @@ export default class SignupPage extends Component {
 
   render() {
     return(
-        <main className="signup-page">
-            <img src={Logo} alt="" className="signup-page__logo" />
-            <form className="signup" onSubmit={this.handleSubmit}>
+        <main className="signup-page ">
+            <img src={Logo} alt="" className="signup-page__logo animate__animated animate__fadeIn" />
+            <form className="signup animate__animated animate__fadeIn" onSubmit={this.handleSubmit}>
                 <h1 className="signup__title">Sign up</h1>
 
                 <Input type="text" name="business" label="Business Name" />
@@ -65,7 +70,7 @@ export default class SignupPage extends Component {
                 {this.state.success && <div className="signup__message">Signed up!</div>}
                 {this.state.error && <div className="signup__message">{this.state.error}</div>}
                 </form>
-                <p className="signup-page__text">
+                <p className="signup-page__text animate__animated animate__fadeIn">
                 Have an account? <Link to="/login" className="signup-page__link">Log in</Link>
                 </p>
         </main>
