@@ -40,6 +40,14 @@ export class ProfilePage extends Component {
         });
     }
 
+    handleLogout = () => {
+        sessionStorage.removeItem("token");
+        this.setState({
+            currentUser: null,
+            failedAuth: true
+        })
+    };
+
 
   render() {
 
@@ -62,6 +70,7 @@ export class ProfilePage extends Component {
                 businessName={this.state.currentUser.businessName}
                 country={this.state.currentUser.country}
                 email={this.state.currentUser.email}
+                handleLogout={this.handleLogout}
             />
       </main>
     )

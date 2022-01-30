@@ -1,0 +1,52 @@
+@use "../../styles/variables" as *;
+
+.landing-page{
+    background-image: url("../../assets/Images/background.jpg");
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+
+    &__logo{
+        width: 15rem;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        height: 60vh;
+    }
+
+    &__hero {
+        border: 2px solid $color-global-white;
+        background-color:  rgba(0, 0, 0, 0.295);
+        padding: 1.5rem;
+        border-radius: .25rem;
+    }
+
+    &__title {
+        font-size: 2.8rem;
+        color: $color-global-white;
+        font-variation-settings: "wght" 700;
+        width: 35rem;
+        text-align: center;
+        margin-bottom: .25rem;
+    }
+
+    &__text {
+        font-size: 1rem;
+        color: $color-global-white;
+        font-variation-settings: "wght" 400;
+        text-align: center;
+        width: 35rem;
+        line-height: 1.3rem;
+    }
+
+    &__button {
+        
+    }
+
+}
