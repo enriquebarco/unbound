@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as *;
+
+.payment-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 6rem;
+
+    &__list {
+        @include card;
+        flex-grow: 1;
+        margin-left: 4rem;
+    }
+}

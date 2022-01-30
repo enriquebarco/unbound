@@ -4,6 +4,7 @@ import Landing from '../../components/Landing/Landing';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import TeamProfile from '../../components/TeamProfile/TeamProfile';
 import PaymentListContainer from '../../components/PaymentListContainer/PaymentListContainer';
+import "./PaymentsPage.scss";
 
 const URL = process.env.REACT_APP_BASE_URL
 
@@ -53,12 +54,10 @@ export class PaymentsPage extends Component {
     }
 
     return(
-        <>
+        <main className="payments-page">
             <PageHeader />
-            <TeamProfile data={this.state.team}/>
             <PaymentListContainer data={this.state.team}/>
-
-        </>
+        </main>
     );
   }
 }
