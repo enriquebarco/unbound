@@ -4,8 +4,10 @@ import { fetchFromAPI } from "../../helpers";
 import axios from "axios";
 import "./StripeCheckout.scss";
 import Button from "../Button/Button.jsx";
+import Logo from "../../assets/Logo/Logo Files/For Web/png/Color logo with background.png"
 
 const url = process.env.REACT_APP_BASE_URL
+const frontEndURL = process.env.REACT_APP_WEB_URL
 
 const StripeCheckout = ( { id, paymentAmount, name, milestone, token }) => {
 const stripe = useStripe();
@@ -48,7 +50,7 @@ const stripe = useStripe();
         onClick={() => {
             axios.post(url + "/payments" , {
                 dateSent: new Date().toISOString().slice(0, 10),
-                status: "Received",
+                status: "Processing",
                 milestone: milestone,
                 paymentAmount: paymentAmount,
                 teams_id: id,

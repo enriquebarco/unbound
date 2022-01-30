@@ -12,24 +12,11 @@ exports.entireTeam = (req, res) => {
     });
 };
 
-exports.singleTeamMember = (req, res) => {
-    knex("teams")
-        .where({id: req.params.id})
-        .then((data) => {
-            res.status(200).json(data);
-        })
-        .catch((err) => {
-            res.status(400).send("Error retrieving team member" + id + err)
-        });
-};
-
 exports.teamMemberPayments = (req,res) => {
     knex
-        .select("teams.name", "teams.jobTitle", "teams.country", "teams.paymentAmount")
         .from("teams")
         .join("payments", "payments.teams_id", "teams.id")
         .where( { teams_id: req.params.id })
-        .orderBy("id", "desc")
         .then((data) => {
             if(!data.length) {
                 return res.sendStatus(404)
@@ -42,8 +29,6 @@ exports.addTeamMember = (req,res) => {
     const body = req.body;
     const users_id = req.user.id;
     body["users_id"] = users_id;
-
-    console.log(body);
 
     knex("teams")
         .insert(body)

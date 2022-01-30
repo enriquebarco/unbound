@@ -23,13 +23,14 @@ export class PaymentsPage extends Component {
         }
 
         // get data from database
-        axios.get(`${URL}/payments`, {
+        axios.get(`${URL}/teams/${this.props.match.params.id}`, {
             headers: {
                 Authorization: "Bearer " + token,
                 teams_id: this.props.match.params.id,
             }
         })
         .then((response) => {
+            console.log(response);
             this.setState({
                 team: response.data
             })

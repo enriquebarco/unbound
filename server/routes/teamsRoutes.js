@@ -10,7 +10,7 @@ router
 
 router
     .route("/:id")
-    .get(teamsController.singleTeamMember)
+    .get(teamsController.teamMemberPayments)
     .put(teamsController.updateTeamMember)
     .delete(teamsController.deleteTeamMember);
 

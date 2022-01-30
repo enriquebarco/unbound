@@ -1,7 +1,6 @@
 const knex = require("../knexConfig");
 
 exports.individualPayments = (req,res) => {
-    console.log(req.headers.teams_id);
     knex("payments")
     .where({ teams_id: req.headers.teams_id })
     .then((data) => {
