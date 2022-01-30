@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Landing from '../../components/Landing/Landing';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import PaymentList from '../../components/PaymentsList/PaymentsList';
 import TeamProfile from '../../components/TeamProfile/TeamProfile';
+import PaymentListContainer from '../../components/PaymentListContainer/PaymentListContainer';
 
 const URL = process.env.REACT_APP_BASE_URL
 
@@ -56,7 +56,7 @@ export class PaymentsPage extends Component {
         <>
             <PageHeader />
             <TeamProfile data={this.state.team}/>
-            <PaymentList data={this.state.team}/>
+            <PaymentListContainer data={this.state.team}/>
 
         </>
     );

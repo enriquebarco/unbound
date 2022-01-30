@@ -1,7 +1,22 @@
+@use "../../styles/variables" as *;
+
 .payment-item {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0rem;
 
     &__container {
-        margin: 0rem 1rem;
+        margin: 1rem 0rem;
+        width: 9rem;
+        text-align: center;
+    }
+
+    &__text {
+        font-size: 1rem;
+        font-variation-settings: "wght" 600;
+        width: 9rem;
     }
 }
+
+

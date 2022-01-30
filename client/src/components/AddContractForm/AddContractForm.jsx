@@ -7,7 +7,7 @@ import 'animate.css';
 export default function AddContactForm( { handleForm } ) {
   return(
     <main className="add-contract__container">
-        <form className="add-contract__form animate__animated" onSubmit={handleForm}>
+        <form className="add-contract__form animate__animated animate__fadeIn" onSubmit={handleForm}>
             <h1 className="add-contract__title">Create a new contract</h1>
 
             <div className="add-contract__column add-contract__column--primary ">
