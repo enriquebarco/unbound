@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const JWT_KEY = process.env.JWT_KEY;
 
 exports.registerUser = (req, res) => {
+    const { email, password, businessName, country } = req.body;
     
     if(!email || !password || !businessName || !country) {
         return res.status(400).send("Please enter the required fields");
@@ -34,6 +35,7 @@ exports.createJWT = (req, res) => {
         .first()
         .then((user) => {
             const isPasswordCorrect = bcrypt.compareSync(password, user.password)
+
             if(!isPasswordCorrect) {
                 return res.status(400).send("Invalid password");
             }

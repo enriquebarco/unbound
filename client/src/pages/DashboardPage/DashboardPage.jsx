@@ -11,6 +11,7 @@ const URL = process.env.REACT_APP_BASE_URL
 export class DashboardPage extends Component {
 
     state = {
+        currentUser: null,
         teams: null,
         failedAuth: false,
     }
@@ -38,6 +39,17 @@ export class DashboardPage extends Component {
         .catch(() => {
             this.setState({ failedAuth: true })
         });
+
+        axios.get(`${URL}/users/current`, {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        })
+        .then ((response) => {
+            this.setState({
+                currentUser: response.data
+            })
+        })
     }
 
   render() {
@@ -47,7 +59,7 @@ export class DashboardPage extends Component {
           )
       }
 
-    if (!this.state.teams) {
+    if (!this.state.teams || !this.state.currentUser) {
         return (
             <div>loading...</div>
         )
@@ -56,7 +68,7 @@ export class DashboardPage extends Component {
     return(
         <>
             <PageHeader />
-            <PageHero />
+            <PageHero currentUser={this.state.currentUser} />
             <DashboardListContainer 
                 data={this.state.teams} 
                 token={sessionStorage.getItem('token')} />

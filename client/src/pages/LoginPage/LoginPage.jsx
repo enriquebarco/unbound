@@ -21,7 +21,7 @@ export class LoginPage extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        if(!event.target.email.value || event.target.password.value) {
+        if(!event.target.email.value || !event.target.password.value) {
             const input = document.getElementsByTagName('input');
             for (let i = 0; i < input.length; i++) {
             input[i].style.borderColor = "red";
@@ -32,6 +32,7 @@ export class LoginPage extends Component {
             if (!event.target.email.value.match(validRegexEmail)) {
                 return alert("Please enter valid email: example@email.com");
             }
+        };
 
         axios
             .post(`${URL}/users/login`, {
@@ -45,7 +46,6 @@ export class LoginPage extends Component {
             .catch((error) => {
                 this.setState({ error: error.response.data });
             });
-    };
 }
 
   render() {
