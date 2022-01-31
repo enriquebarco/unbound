@@ -10,6 +10,10 @@ function Map() {
             defaultZoom={1.3} 
             defaultCenter={{lat: 12, lng: 12}} 
         >
+          <Marker position={{
+            lat:42.546245,
+            lng: 1.601554
+            }}/>
         </GoogleMap>
     );
 }
