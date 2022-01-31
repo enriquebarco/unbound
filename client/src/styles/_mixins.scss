@@ -1,4 +1,5 @@
 @use "../styles/variables" as *;
+@use "../styles/typography" as *;
 
 @mixin desktop {
     @media screen and (min-width: $desktop-breakpoint) {
@@ -22,4 +23,17 @@
   border: 0;
   transition: box-shadow .2s;
 
+}
+
+@mixin button-secondary {
+        font-family: "Montserrat";
+        font-variation-settings: "wght" 700;
+        cursor: pointer;
+        background-color: $color-secondary;
+        border-radius: .25rem;
+        border-width: 0;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+        font-size: 1rem;
+        transition: box-shadow .15s,transform .15s;
+        will-change: box-shadow,transform;
 }
