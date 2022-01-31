@@ -50,9 +50,19 @@ export class NewContractPage extends Component {
             isLoading: true,
         });
 
+        console.log(JSON.parse(parseFloat(event.target.country.value.latitude)));
+        const object = JSON.parse(event.target.country.value);
+        const latitude = parseFloat(object.latitude)
+        const longitude = parseFloat(object.longitude)
+
+        console.log(latitude, longitude);
+
+        debugger;
+
         let body = {
             name: event.target.name.value,
             country: event.target.country.value,
+            latitude: event.target.country.value.latitude,
             startDate: event.target.startDate.value,
             endDate: event.target.endDate.value || null,
             terminationPeriod: event.target.terminationPeriod.value,

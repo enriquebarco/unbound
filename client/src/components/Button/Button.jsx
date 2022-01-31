@@ -6,11 +6,11 @@ import "./Button.scss"
 
 export default function Button() {
   return <div>
-    <button class="button">
-  <span class="button__text">
+    <button className="button">
+  <span className="button__text">
     P<span></span>a<span></span>y
   </span>
-  <svg class="button__svg" role="presentational" viewBox="0 0 600 600">
+  <svg className="button__svg" role="presentational" viewBox="0 0 600 600">
     <defs>
       <clipPath id="myClip">
         <rect x="0" y="0" width="100%" height="50%" />

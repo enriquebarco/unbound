@@ -68,7 +68,7 @@ export class DashboardPage extends Component {
     return(
         <>
             <PageHeader />
-            <PageHero currentUser={this.state.currentUser} />
+            <PageHero currentUser={this.state.currentUser} teams={this.state.teams} />
             <DashboardListContainer 
                 data={this.state.teams} 
                 token={sessionStorage.getItem('token')} />

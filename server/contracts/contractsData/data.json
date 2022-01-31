@@ -1,15 +1,1 @@
-[
-  {
-    "businessName": "Kabila Group LLC",
-    "name": "Nai Tafur",
-    "country": "Brazil",
-    "startDate": "2022-02-01",
-    "endDate": "2023-02-01",
-    "terminationPeriod": "30",
-    "jobTitle": "Marketing Director",
-    "milestone": "Create facebook and google ads campaign",
-    "milestoneDescription": "Build sustainable campaigns, lowering CAC by $4",
-    "prefCurrency": "Real",
-    "paymentAmount": "15000"
-  }
-]
+[{"businessName":"Kabila Group LLC","name":"Big Mike","country":"{\"latitude\":\"42.546245\",\"longitude\":\"1.601554\",\"country\":\"Andorra\"}","startDate":"2022-02-03","endDate":null,"terminationPeriod":"14","jobTitle":"Head of Being Cool","milestone":"Make 100 Sales","milestoneDescription":"you need to go all out and make this company amazing","prefCurrency":"CAD","paymentAmount":"12000"}]
