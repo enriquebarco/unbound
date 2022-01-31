@@ -12,7 +12,7 @@ export default function PageFooter() {
     <footer className="footer">
         <div className="footer__logo-wrapper">
           <img className="footer__logo" src={Logo} alt="unbound logo" />
-          <p className="footer__logo-text">&#169</p>
+          <p className="footer__logo-text">©2022 All Rights Reserved</p>
 
         </div>
         <div className="footer__contact-wrapper">

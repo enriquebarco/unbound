@@ -3,6 +3,7 @@
 .footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: linear-gradient(to left top, $color-primary, $color-interactive-elements);
     padding: 2rem 6rem;
 
@@ -17,7 +18,7 @@
         width: 12rem;
 
         &-text{
-            content: "\00A9";
+            color: white;
         }
     }
 
@@ -64,5 +65,7 @@
 
     &__social-icon {
         width: 2rem;
+        height: 2rem;
+        margin: 0rem 1rem;
     }
 }
