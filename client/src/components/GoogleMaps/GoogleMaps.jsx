@@ -30,6 +30,7 @@ function Map( { teams } ) {
                 scaledSize: new window.google.maps.Size(30, 30)
               }}
             />})}
+
           {selectedTeam && (
             <InfoWindow 
               position={{
