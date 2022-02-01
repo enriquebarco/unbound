@@ -12,6 +12,7 @@ export class PaymentsPage extends Component {
     state = {
         team: null,
         failedAuth: false,
+        isPayment: true,
     }
     
     componentDidMount() {
@@ -35,7 +36,7 @@ export class PaymentsPage extends Component {
             })
         })
         .catch(() => {
-            this.setState({ failedAuth: true })
+            this.setState({ isPayment: false })
         });
     }
 
@@ -46,11 +47,21 @@ export class PaymentsPage extends Component {
           )
       }
 
+      if (!this.state.isPayment) {
+          return (
+              <>
+                  <PageHeader />
+                  <div className="no-payment">You have not made a payment yet!</div>
+              </>
+          )
+      }
+
     if (!this.state.team) {
         return (
             <div>loading...</div>
         )
     }
+
 
     return(
         <main className="payments-page">

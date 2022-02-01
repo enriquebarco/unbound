@@ -93,7 +93,7 @@ export class NewContractPage extends Component {
             .then((response) => {
                 window.open(response.data, '_blank').focus();
                 body.contract = response.data
-                axios.post(URL + "/teams", body, {
+                return axios.post(URL + "/teams", body, {
                     headers: {
                         Authorization: "Bearer " + token,
                     }

@@ -20,7 +20,7 @@ async function createCheckoutSession (req, res) {
             line_items,
             customer_email: email,
             success_url: `${domainURL}/payments/${req.headers.teams_id}/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${domainURL}/cancelled`,
+            cancel_url: `${domainURL}/payments/${req.headers.teams_id}/cancelled`,
         });
         res.status(200).json({ sessionId: session.id });    
     }

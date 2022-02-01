@@ -18,7 +18,7 @@ export default function PageFooter() {
         <div className="footer__contact-wrapper">
             <h5 className="footer__contact-title">CONTACT</h5>
             <a className="footer__email" href="mailto:enrique@unbound">enrique@unbound.com</a>
-            <a className="footer__email" href="+1(786)2707792">+1 (786)-270-7792</a>
+            <a className="footer__email" href="tel:+1(786)2707792">+1 (786)-270-7792</a>
         </div>
         <div className="footer__social-wrapper">
             <img src={Facebook} alt="facebook icon" className="footer__social-icon" />
