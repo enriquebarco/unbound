@@ -12,7 +12,7 @@ export default function LoadingJoke() {
                 <h1 className="loading-joke__title">Contract is loading...</h1>
                 <img src={ContractIcon} alt="contracts icon" className="loading-joke__contract-icon" />
                 <h2 className="loading-joke__prefix">Joke of The Day</h2>
-                <h3 className="loading-joke__buildup">Started working <span className="loading-joke__span">remotely</span> from home recently building boats in my attic...</h3>
+                <h3 className="loading-joke__buildup">I recently started working <span className="loading-joke__span">remotely</span> from home building boats in my attic...</h3>
                 <h3 className="loading-joke__punchline">Sails are through the roof.</h3>
                 <div className="loading-joke__ship-container">
                     <img src={ShipBlue} alt="ship icon" className="loading-joke__ship" />

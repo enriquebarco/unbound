@@ -34,15 +34,30 @@ export class NewContractPage extends Component {
     handleForm = (event) => {
         const token = sessionStorage.getItem("token");
         
+        //Country Object
+        const countryObject = JSON.parse(event.target.country.value);
+        const countryName = countryObject.country;
+        const latitude = parseFloat(countryObject.latitude);
+        const longitude = parseFloat(countryObject.longitude);
+
+        
+
+        //Currency 
+        const currency = JSON.parse(event.target.currency.value)
+
+        console.log(countryName, latitude, longitude, currency);
+        
         event.preventDefault();
 
         
-        if (!event.target.name.value || !event.target.country.value || !event.target.startDate.value || !event.target.terminationPeriod.value ||!event.target.jobTitle.value || !event.target.milestone.value || !event.target.milestoneDescription.value || !event.target.prefCurrency.value || !event.target.paymentAmount.value ) {
+        if (!event.target.name.value || !countryObject || !event.target.startDate.value || !event.target.terminationPeriod.value ||!event.target.jobTitle.value || !event.target.milestone.value || !event.target.milestoneDescription.value || !currency || !event.target.paymentAmount.value ) {
             
             const input = document.getElementsByClassName('contract-form__input')
             for (let i = 0; i < input.length; i++) {
                 input[i].style.borderColor = "red";
             };
+
+            return alert("Please enter the required fields")
 
         };
         
@@ -50,26 +65,20 @@ export class NewContractPage extends Component {
             isLoading: true,
         });
 
-        console.log(JSON.parse(parseFloat(event.target.country.value.latitude)));
-        const object = JSON.parse(event.target.country.value);
-        const latitude = parseFloat(object.latitude)
-        const longitude = parseFloat(object.longitude)
 
-        console.log(latitude, longitude);
-
-        debugger;
 
         let body = {
             name: event.target.name.value,
-            country: event.target.country.value,
-            latitude: event.target.country.value.latitude,
+            country: countryName,
+            latitude: latitude,
+            longitude: longitude,
             startDate: event.target.startDate.value,
             endDate: event.target.endDate.value || null,
             terminationPeriod: event.target.terminationPeriod.value,
             jobTitle: event.target.jobTitle.value,
             milestone: event.target.milestone.value,
             milestoneDescription: event.target.milestoneDescription.value,
-            prefCurrency: event.target.prefCurrency.value,
+            prefCurrency: currency,
             paymentAmount: event.target.paymentAmount.value,
         }
 

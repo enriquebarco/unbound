@@ -1,5 +1,15 @@
 [
     {
+        "latitude": "",
+        "longitude": "",
+        "country": ""
+    },
+    {
+        "latitude": "37.09024",
+        "longitude": "-95.712891",
+        "country": "United States"
+    },
+    {
         "latitude": "42.546245",
         "longitude": "1.601554",
         "country": "Andorra"
@@ -1133,11 +1143,6 @@
         "latitude": "",
         "longitude": "",
         "country": "U.S. Minor Outlying Islands"
-    },
-    {
-        "latitude": "37.09024",
-        "longitude": "-95.712891",
-        "country": "United States"
     },
     {
         "latitude": "-32.522779",

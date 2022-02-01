@@ -14,6 +14,10 @@
         padding: 1rem;
     }
 
+    &__column-container {
+        display: flex;
+    }
+
     &__form {
         @include card;
         display: flex;
@@ -36,7 +40,7 @@
     }
 
     &__column {
-        flex-grow: 1;
+        width: 19rem;
         padding: 0rem 3rem;
 
         &--primary {
