@@ -5,9 +5,8 @@
 .google-maps {
     &__container {
         @include card;
-        border-radius: rem;
         height: 40vh;
-        width: 50%
+        width: 50%,
     }
 
     &__element {
