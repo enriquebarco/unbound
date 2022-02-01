@@ -13,7 +13,7 @@ function Map( { teams } ) {
          <GoogleMap 
             defaultZoom={1.4} 
             defaultCenter={{lat: 12, lng: 12}}
-            defaultOptions={{styles: MapStyle}} 
+            defaultOptions={{styles: MapStyle, disableDefaultUI: true, zoomControl: true,}} 
         >
           {teams.map((team) => {
             return <Marker 
@@ -32,7 +32,7 @@ function Map( { teams } ) {
             />})}
 
           {selectedTeam && (
-            <InfoWindow 
+            <InfoWindow className="myDiv"
               position={{
                 lat: selectedTeam.latitude, 
                 lng: selectedTeam.longitude
