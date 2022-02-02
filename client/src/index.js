@@ -9,11 +9,9 @@ const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
 
 
 ReactDOM.render(
-  <React.StrictMode>
     <Elements stripe={stripePromise}>
       <App />
-    </Elements>
-  </React.StrictMode>,
+    </Elements>,
   document.getElementById('root')
 );
 
