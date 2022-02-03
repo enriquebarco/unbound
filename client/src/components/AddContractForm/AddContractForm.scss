@@ -22,6 +22,7 @@
         @include card;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         width: 50rem;
         padding: 2rem 1.5rem;
         margin-bottom: 1rem;

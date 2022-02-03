@@ -16,6 +16,7 @@ export class PaymentsPage extends Component {
     }
     
     componentDidMount() {
+        document.title = "Team Member"
         const token = sessionStorage.getItem('token');
 
         if(!token) {

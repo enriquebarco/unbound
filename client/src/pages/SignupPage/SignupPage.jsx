@@ -16,7 +16,7 @@ export default class SignupPage extends Component {
     };
 
     componentDidMount() {
-        document.title = "signup - unbound"
+        document.title = "Signup - unbound"
     }
 
     handleSubmit = (event) => {

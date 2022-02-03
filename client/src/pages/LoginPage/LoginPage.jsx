@@ -15,7 +15,7 @@ export class LoginPage extends Component {
     }
 
     componentDidMount() {
-        document.title= "login - unbound"
+        document.title= "Login - unbound"
     }
 
     handleSubmit = (event) => {
