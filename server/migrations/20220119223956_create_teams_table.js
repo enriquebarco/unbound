@@ -11,6 +11,8 @@ exports.up = function(knex) {
         table.increments("id").primary();
         table.string("name").notNullable();
         table.string("country").notNullable();
+        table.integer("latitude").notNullable();
+        table.integer("longitude").notNullable();
         table.timestamp("startDate").notNullable();
         table.timestamp("endDate");
         table.integer("terminationPeriod").unsigned().notNullable();
@@ -32,6 +34,8 @@ exports.up = function(knex) {
       table.increments("id").primary();
       table.timestamp("dateSent").notNullable();
       table.string("status").notNullable();
+      table.string("milestone").notNullable();
+      table.integer("paymentAmount").notNullable();
       table
         .integer("teams_id")
         .unsigned()
