@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 const pdf = require("pdf-creator-node");
 const path = require("path");
 
