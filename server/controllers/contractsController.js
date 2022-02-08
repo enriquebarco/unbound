@@ -61,7 +61,7 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            res.download(document.path)
+            res.send(document.path)
         })
         .catch(error => {
             console.log(error);
