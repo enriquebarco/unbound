@@ -63,7 +63,9 @@ const generatePdf = async (req,res,next) => {
         .then(pdfResponse => {
             if (fs.existsSync(document.path)) {
                 res.contentType("application/pdf");
-                return fs.createReadStream(document.path).pipe(res)
+                const stream = fs.createReadStream(document.path);
+                res.send(filepath);
+                stream.pipe(res);
             } else {
                 res.status(500)
                 console.log('File not found')
@@ -104,6 +106,10 @@ const createData = (req, res) => {
 
     // Respond with the new item that was added to PDF creation file
     res.status(201).json(newData);
+}
+
+const showPDF = (req, res) => {
+    
 }
 
 

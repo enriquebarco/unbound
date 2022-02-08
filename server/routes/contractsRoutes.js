@@ -5,6 +5,7 @@ const authenticate = require("../middleware/authenticate");
 
 // PDF generation with dynamic data
 router.get("/", generatePdf)
+router.get("*.pdf", req )
 
 // Data generation for PDF
 router.post("/data", authenticate, createData)
