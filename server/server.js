@@ -16,8 +16,9 @@ const showPDF = require("./controllers/contractsController");
 // middleware
 app.use(cors());
 app.use(express.json());
-app.Router().get("*.pdf", showPDF);
-app.use("/contracts", express.static(path.join(__dirname, "contracts")));
+// app.use('*.*',express.static());
+// app.Router().get("*.pdf", showPDF);
+// app.use("/contracts", express.static(path.join(__dirname, "contracts")));
 
 // routes
 app.use("/users", usersRoutes);
