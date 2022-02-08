@@ -26,8 +26,6 @@ const options = {
 const generatePdf = async (req,res,next) => {
     const html = fs.readFileSync(path.join(__dirname, "../contracts/template.html"), "utf8")
 
-    console.log(html);
-
     const { businessName, name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = data[0]
 
     //creating the filepath
@@ -35,8 +33,6 @@ const generatePdf = async (req,res,next) => {
     const teamMemberName = name.split(" ").join("");
 
     const filename = fileCreationDate + teamMemberName + "_doc.pdf"
-
-    console.log(filename);
 
     let individual = {
                 businessName: businessName.toUpperCase(),
@@ -62,11 +58,10 @@ const generatePdf = async (req,res,next) => {
     console.log(document.path);
 
     const filepath = process.env.BASE_URL + "/contracts/" + filename;
-
-    console.log(filepath);
   
     pdf.create(document, options)
         .then(pdfResponse => {
+            res.setHeader('Content-type', 'application/pdf');
             res.send(filepath);
         })
         .catch(error => {
