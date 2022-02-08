@@ -57,11 +57,11 @@ const generatePdf = async (req,res,next) => {
 
     console.log(document.path);
 
-    const filepath = process.env.BASE_URL + "/contracts/" + filename;
+    const filepath = process.env.BASE_URL + "/public/" + filename;
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            res.setHeader("Content-type","application/pdf").send(document.path)
+            res.setHeader("Content-type","application/pdf").send(filepath)
         })
         .catch(error => {
             console.log(error);
@@ -116,5 +116,5 @@ const createData = (req, res) => {
 module.exports = {
     generatePdf,
     createData,
-    showPDF,
+    // showPDF,
 }

@@ -18,8 +18,8 @@ app.use(cors());
 app.use(express.json());
 // app.use('*.*',express.static());
 // app.Router().get("*.pdf", showPDF);
-// app.use("/contracts", express.static(path.join(__dirname, "contracts")));
-app.use(express.static('public'))
+app.use("/public", express.static(path.join(__dirname, "public")));
+// app.use(express.static('public'))
 
 // routes
 app.use("/users", usersRoutes);
