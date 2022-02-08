@@ -61,7 +61,7 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            res.send(document.path)
+            res.setHeader("Content-type","application/pdf").send(document.path)
         })
         .catch(error => {
             console.log(error);
@@ -100,11 +100,21 @@ const createData = (req, res) => {
 }
 
 const showPDF = (req, res) => {
-    
+    const path = "/contracts/2022-02-08kike_doc.pdf"
+    console.log(req.path);
+    if (fs.existsSync(path)) {
+        res.contentType("application/pdf");
+        fs.createReadStream(path).pipe(res)
+    } else {
+        res.status(500)
+        console.log('File not found')
+        res.send('File not found')
+    }
 }
 
 
 module.exports = {
     generatePdf,
-    createData
+    createData,
+    showPDF,
 }
