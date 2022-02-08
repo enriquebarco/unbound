@@ -57,7 +57,7 @@ const generatePdf = async (req,res,next) => {
 
     console.log(document.path);
 
-    const filepath = process.env.BASE_URL + "/static/media" + filename;
+    const filepath = process.env.BASE_URL + "/static/media/" + filename;
   
     pdf.create(document, options)
         .then(pdfResponse => {
