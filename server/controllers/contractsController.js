@@ -101,7 +101,7 @@ const createData = (req, res) => {
 
 const showPDF = (req, res) => {
     const path = "/contracts/2022-02-08kike_doc.pdf"
-    console.log(req.path);
+    console.log("Here!!" + req.path);
     if (fs.existsSync(path)) {
         res.contentType("application/pdf");
         fs.createReadStream(path).pipe(res)
