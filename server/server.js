@@ -10,11 +10,13 @@ const usersRoutes = require("./routes/usersRoutes");
 const contractsRoutes = require("./routes/contractsRoutes");
 const createCheckoutSession = require("./api/payment");
 const authenticate = require("./middleware/authenticate");
+const showPDF = require("./controllers/contractsController");
 
 
 // middleware
 app.use(cors());
 app.use(express.json());
+app.get("*.pdf", showPDF);
 app.use("/contracts", express.static(path.join(__dirname, "contracts")));
 
 // routes
