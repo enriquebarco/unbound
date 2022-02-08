@@ -51,7 +51,7 @@ const generatePdf = async (req,res,next) => {
     const document = {
         html: html,
         data: {individual},
-        path: "./contracts/" + filename,
+        path: "./public/" + filename,
         type: ""
     }
 
@@ -99,18 +99,18 @@ const createData = (req, res) => {
     res.status(201).json(newData);
 }
 
-const showPDF = (req, res) => {
-    const path = "/contracts/2022-02-08kike_doc.pdf"
-    console.log("Here!!" + req.path);
-    if (fs.existsSync(path)) {
-        res.contentType("application/pdf");
-        fs.createReadStream(path).pipe(res)
-    } else {
-        res.status(500)
-        console.log('File not found')
-        res.send('File not found')
-    }
-}
+// const showPDF = (req, res) => {
+//     const path = "/contracts/2022-02-08kike_doc.pdf"
+//     console.log("Here!!" + req.path);
+//     if (fs.existsSync(path)) {
+//         res.contentType("application/pdf");
+//         fs.createReadStream(path).pipe(res)
+//     } else {
+//         res.status(500)
+//         console.log('File not found')
+//         res.send('File not found')
+//     }
+// }
 
 
 module.exports = {

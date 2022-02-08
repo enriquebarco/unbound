@@ -19,6 +19,7 @@ app.use(express.json());
 // app.use('*.*',express.static());
 // app.Router().get("*.pdf", showPDF);
 // app.use("/contracts", express.static(path.join(__dirname, "contracts")));
+app.use(express.static('public'))
 
 // routes
 app.use("/users", usersRoutes);
