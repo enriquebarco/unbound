@@ -61,16 +61,7 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            if (fs.existsSync(document.path)) {
-                res.contentType("application/pdf");
-                const stream = fs.createReadStream(document.path);
-                res.send(filepath);
-                stream.pipe(res);
-            } else {
-                res.status(500)
-                console.log('File not found')
-                return res.send('File not found')
-            }
+            res.download(document.path)
         })
         .catch(error => {
             console.log(error);
