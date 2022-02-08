@@ -32,7 +32,8 @@ const generatePdf = async (req,res,next) => {
     const fileCreationDate = new Date().toISOString().split('T')[0];
     const teamMemberName = name.split(" ").join("");
 
-    const filename = fileCreationDate + teamMemberName + "_doc.pdf"
+    // const filename = fileCreationDate + teamMemberName + "_doc.pdf"
+    const filename = "samole.pdf";
 
     let individual = {
                 businessName: businessName.toUpperCase(),
@@ -57,7 +58,7 @@ const generatePdf = async (req,res,next) => {
 
     console.log(document.path);
 
-    const filepath = process.env.BASE_URL + "/static/media/" + filename;
+    const filepath = process.env.BASE_URL + "/public/" + filename;
   
     pdf.create(document, options)
         .then(pdfResponse => {
