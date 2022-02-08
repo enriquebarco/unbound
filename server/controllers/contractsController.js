@@ -61,8 +61,16 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            console.log(pdfResponse);
-            res.setHeader('Content-disposition', 'inline; filename="' + filename + '"').setHeader('Content-type', 'application/pdf').send(filepath);
+            console.log(fs.existsSync(filepath));
+            var stream = fs.readStream(filepath);
+            
+            filename = encodeURIComponent(filename);
+            // Ideally this should strip them
+          
+            res.setHeader('Content-disposition', 'inline; filename="' + filename + '"');
+            res.setHeader('Content-type', 'application/pdf');
+          
+            stream.pipe(res);
         })
         .catch(error => {
             console.log(error);
