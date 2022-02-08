@@ -1,4 +1,4 @@
-const fs = require("fs").promises;
+const fs = require("fs");
 const pdf = require("pdf-creator-node");
 const path = require("path");
 
@@ -61,16 +61,14 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            console.log(fs.existsSync(document.path));
-            var stream = fs.readStream(document.path);
-            
-            filename = encodeURIComponent(filename);
-            // Ideally this should strip them
-          
-            res.setHeader('Content-disposition', 'inline; filename="' + filename + '"');
-            res.setHeader('Content-type', 'application/pdf');
-          
-            stream.pipe(res);
+            if (fs.existsSync(document.path)) {
+                res.contentType("application/pdf");
+                return fs.createReadStream(document.path).pipe(res)
+            } else {
+                res.status(500)
+                console.log('File not found')
+                return res.send('File not found')
+            }
         })
         .catch(error => {
             console.log(error);
