@@ -61,8 +61,8 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            res.setHeader('Content-type', 'application/pdf');
-            res.send(filepath);
+            console.log(pdfResponse);
+            res.setHeader('Content-disposition', 'inline; filename="' + filename + '"').setHeader('Content-type', 'application/pdf').send(filepath);
         })
         .catch(error => {
             console.log(error);
