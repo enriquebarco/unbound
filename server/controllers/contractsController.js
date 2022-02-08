@@ -61,8 +61,8 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            console.log(fs.existsSync(filepath));
-            var stream = fs.readStream(filepath);
+            console.log(fs.existsSync(document.path));
+            var stream = fs.readStream(document.path);
             
             filename = encodeURIComponent(filename);
             // Ideally this should strip them
