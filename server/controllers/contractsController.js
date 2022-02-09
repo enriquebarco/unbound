@@ -26,8 +26,6 @@ const options = {
 const generatePdf = async (req,res,next) => {
     const html = fs.readFileSync(path.join(__dirname, "../contracts/template.html"), "utf8")
 
-    console.log(html);
-
     const { businessName, name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = data[0]
 
     //creating the filepath
@@ -67,6 +65,8 @@ const generatePdf = async (req,res,next) => {
   
     pdf.create(document, options)
         .then(pdfResponse => {
+            console.log("PDF Response =" + pdfResponse);
+            console.log("Filepath being sent in response = " + filepath);
             res.send(filepath);
         })
         .catch(error => {
@@ -75,6 +75,8 @@ const generatePdf = async (req,res,next) => {
 }
 
 const createData = (req, res) => {
+
+    console.log("Create data function happens");
 
     const { name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = req.body
 
@@ -103,6 +105,7 @@ const createData = (req, res) => {
 
     // Respond with the new item that was added to PDF creation file
     res.status(201).json(newData);
+    console.log("new data created in json file = " + newData);
 }
 
 
