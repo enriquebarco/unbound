@@ -52,13 +52,13 @@ const generatePdf = async (req,res,next) => {
     const document = {
         html: html,
         data: {individual},
-        path: "./public/" + filename,
+        path: "./static/" + filename,
         type: ""
     }
 
     console.log(document.path);
 
-    const filepath = process.env.BASE_URL + "/public/" + filename;
+    const filepath = process.env.BASE_URL + "/static/" + filename;
   
     pdf.create(document, options)
         .then(pdfResponse => {
