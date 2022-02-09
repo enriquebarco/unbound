@@ -19,6 +19,7 @@ export default class App extends Component {
                         <Route path="/contract" component={NewContractPage} />
                         <Route path="/profile" component={ProfilePage} />
                         <Route path="/payments/:id" component={PaymentsPage} />
+                        <Route path="/public/:filename" component={ProfilePage} />
                     </Switch>
                 </BrowserRouter>
             </div>
