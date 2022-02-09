@@ -21,7 +21,7 @@ app.use(express.json());
 // app.use("/public", express.static(path.join(__dirname, "public")));
 // app.use(express.static('public'))
 
-app.use('/static', express.static(path.join(__dirname, '../client/build//static')));
+// app.use('/static', express.static(path.join(__dirname, '../client/build//static')));
 // app.get('*', function(req, res) {
 //   res.sendFile('index.html', {root: path.join(__dirname, '../../client/build/')});
 // });
