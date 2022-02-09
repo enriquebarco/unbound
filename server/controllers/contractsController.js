@@ -26,6 +26,8 @@ const options = {
 const generatePdf = async (req,res,next) => {
     const html = fs.readFileSync(path.join(__dirname, "../contracts/template.html"), "utf8")
 
+    console.log(html);
+
     const { businessName, name, country, startDate, endDate, terminationPeriod, jobTitle, milestone, milestoneDescription, prefCurrency, paymentAmount } = data[0]
 
     //creating the filepath
@@ -33,6 +35,8 @@ const generatePdf = async (req,res,next) => {
     const teamMemberName = name.split(" ").join("");
 
     const filename = fileCreationDate + teamMemberName + "_doc.pdf"
+
+    console.log(filename);
 
     let individual = {
                 businessName: businessName.toUpperCase(),
@@ -51,15 +55,19 @@ const generatePdf = async (req,res,next) => {
     const document = {
         html: html,
         data: {individual},
-        path: "./static/" + filename,
+        path: "./contracts/" + filename,
         type: ""
     }
 
-    const filepath = process.env.BASE_URL + "/contracts/" + filename
+    console.log(document.path);
+
+    const filepath = process.env.BASE_URL + "/contracts/" + filename;
+
+    console.log(filepath);
   
     pdf.create(document, options)
         .then(pdfResponse => {
-            res.setHeader("Content-type","application/pdf").send(filepath)
+            res.send(filepath);
         })
         .catch(error => {
             console.log(error);
@@ -97,22 +105,8 @@ const createData = (req, res) => {
     res.status(201).json(newData);
 }
 
-// const showPDF = (req, res) => {
-//     const path = "/contracts/2022-02-08kike_doc.pdf"
-//     console.log("Here!!" + req.path);
-//     if (fs.existsSync(path)) {
-//         res.contentType("application/pdf");
-//         fs.createReadStream(path).pipe(res)
-//     } else {
-//         res.status(500)
-//         console.log('File not found')
-//         res.send('File not found')
-//     }
-// }
-
 
 module.exports = {
     generatePdf,
-    createData,
-    // showPDF,
+    createData
 }
