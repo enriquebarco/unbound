@@ -20,8 +20,9 @@ app.use(express.json());
 // app.Router().get("*.pdf", showPDF);
 // app.use("/public", express.static(path.join(__dirname, "public")));
 // app.use(express.static('public'))
-app.get('/*.*', (req,res) =>{
-    console.log("HERE",req.path)
+
+app.get('*.*', (req,res) => {
+    console.log("HERE",req.path);
     res.sendFile(path.join(__dirname , 'public', 'samole.pdf'));
 });
 
