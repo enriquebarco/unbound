@@ -18,6 +18,7 @@ unbound-teams.com
 5) Migrate the tables to your database
 6) Use knex to seed the data into the database
 7) You should be ready to go!
+
 ## Tech Stack
 
 JS, ReactJS, NodeJS + Express, axios, mySQL, knexJS, Sass, bcrypt.js jsonwebtoken, various npm packages, stripe API & google maps API
