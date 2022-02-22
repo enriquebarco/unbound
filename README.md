@@ -5,6 +5,8 @@ unbound is a tech-enabled self-serve platform that helps entrepreneurs hire and 
 
 unbound-teams.com
 
+watch the demo here! https://www.linkedin.com/feed/update/urn:li:activity:6899803133501878272/
+
 
 ## Installation
 
