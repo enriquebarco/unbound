@@ -1,0 +1,19 @@
+@use "../../styles/variables" as *;
+
+.list-heading {
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-primary-faded;
+    align-items: center;
+    border-radius: .25rem;
+
+    &__title {
+        text-transform: uppercase;
+        color: $color-global-white;
+        text-align: center;
+        margin: .5rem;
+        font-size: .875rem;
+        font-variation-settings: "wght" 600;
+        width: 9rem;
+    }
+}

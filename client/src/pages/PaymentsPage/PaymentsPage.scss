@@ -1,0 +1,12 @@
+@use "../../styles/variables" as *;
+
+.payments-page {
+    background-color: $color-secondary;
+    height: 100vh;
+}
+
+.no-payment {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 4rem;
+}

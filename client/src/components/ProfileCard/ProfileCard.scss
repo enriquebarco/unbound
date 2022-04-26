@@ -1,0 +1,74 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.profile-card {
+    background-color: $color-secondary;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    &__container {
+        @include card;
+        width: 23rem;
+        display: flex;
+        flex-direction: column;
+        padding: .5rem 2rem;
+    }
+
+
+
+    &__business-name {
+        font-variation-settings: "wght" 700;
+        font-size: 1.5rem;
+        text-align: center;
+        color: $color-primary;
+    }
+
+    &__icon {
+        width: 8rem;
+        align-self: center;
+        margin: 1rem;
+    }
+
+    &__label {
+        font-size: 1.25rem;
+        margin-bottom: 0rem;
+        font-variation-settings: "wght" 600;
+    }
+
+    &__text {
+        font-size: 1rem;
+    }
+
+    &__buttons-container {
+        display: flex;
+        justify-content: flex-end;
+        margin:  1rem;
+    }
+
+    &__button-edit {
+        @include button-primary;
+        color: $color-global-white;
+        font-size: 1rem;
+        font-variation-settings: "wght" 600;
+        padding: .5rem 1rem;
+        margin-left: 1rem;
+
+        &:hover {
+            box-shadow: $color-third 0 .1875rem .5rem;
+        }
+    }
+
+    &__button-sign-out {
+        @include button-secondary;
+        font-variation-settings: "wght" 600;
+
+        &:hover {
+            box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+    }
+}

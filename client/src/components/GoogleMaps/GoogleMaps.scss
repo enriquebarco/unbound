@@ -1,0 +1,33 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/typography" as *;
+
+.google-maps {
+    &__container {
+        @include card;
+        height: 40vh;
+        width: 50%,
+    }
+
+    &__element {
+        border-radius: .5rem;
+        height: 100%;
+    }
+}
+
+.info-window {
+    &__title {
+        font-family: "Montserrat";
+        font-size: .875rem;
+        font-variation-settings: "wght" 600;
+        margin: 0rem;
+        text-decoration: underline;
+    }
+
+    &__text {
+        font-family: "Montserrat";
+        font-size: .75rem;
+        font-variation-settings: "wght" 500;
+        margin: .5rem 0rem;
+    }
+}

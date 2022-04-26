@@ -1,0 +1,71 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+
+.header {
+    @include card;
+    border-radius: 0;
+    background: linear-gradient(.6turn, $color-primary, $color-interactive-elements, $color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    @include desktop {
+        padding: 1.5rem 6rem;
+    }
+
+    &__logo {
+        width: 12rem;
+
+        @include desktop {
+            width: 15rem;
+        }
+
+        &:hover {
+            animation-name: pulse;
+        }
+    }
+    
+    &__nav-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__link {
+        text-decoration: none;
+        margin: 0 .25rem;
+        position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: .0625rem;
+                background-color: $color-global-white;
+                transition: transform 300ms ease-in-out;
+
+                transform: scaleX(0);
+            }
+
+            &:hover::before {
+                transform: scaleX(1);
+            }
+    }
+
+    &__nav-item {
+        color: $color-global-white;
+        padding: 0 .625rem;
+        font-size: 1rem;
+
+        @include desktop {
+            padding: 0rem .75rem;
+        }
+    }
+}

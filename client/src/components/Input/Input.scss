@@ -1,0 +1,24 @@
+@use "../../styles/variables" as *;
+
+.input {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        margin-bottom: 0.5rem;
+    }
+
+    &__text {
+        margin-bottom: 1rem;
+        border: .0625rem solid rgb(180, 180, 180);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        font-size: inherit;
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 .125rem $color-primary;
+        }
+    }
+}
